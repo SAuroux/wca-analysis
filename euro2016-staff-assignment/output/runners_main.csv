@@ -1,0 +1,89 @@
+Event,Round,Group,Timeframe,Runner 1,Runner 2,Runner 3,Runner 4,Runner 5,Runner 6,Runner 7,Runner 8,Runner 9
+777,Round 1,Group 1,Friday 09:00 - 09:25,Francisco Pérez Padilla,Diana Murnik,Zoé de Moffarts,Dmitry Aniskin,Wojciech Szatanowski,Thaynara Santana de Oliveira,Helmut Heilig,István Szepesi-Nagy,Markus Pirzer
+777,Round 1,Group 2,Friday 09:25 - 09:50,Karina Grandjean Beck,Diana Murnik,Zoé de Moffarts,Dmitry Aniskin,Wojciech Szatanowski,Thaynara Santana de Oliveira,Helmut Heilig,Fredrik Trondhjem,Markus Pirzer
+777,Round 1,Group 3,Friday 09:50 - 10:15,Karina Grandjean Beck,Tristan Wright,Henrik Buus Aagaard,Fredrik Trondhjem,Tomáš Novotný,Nora Christ,Kristýna Vaštová,Markus Pirzer,Jernej Omulec
+666,Round 1,Group 1,Friday 10:15 - 10:35,Tristan Wright,Henrik Buus Aagaard,Karina Grandjean Beck,Tomáš Novotný,Fredrik Trondhjem,Marcin Jakubowski,Nora Christ,Jernej Omulec,Markus Pirzer
+666,Round 1,Group 2,Friday 10:35 - 10:55,Tristan Wright,Henrik Buus Aagaard,Tomáš Novotný,Kristýna Vaštová,Jernej Omulec,Nora Christ,Marcel Peters,Wojciech Szatanowski,Arthur Garcin
+666,Round 1,Group 3,Friday 10:55 - 11:15,Antoine Piau,Lina Tissier,Patryk Milewczyk,Gregor Billing,Bernhard Brodowsky,Adam Polkowski,Martin Kraut,András Placskó,Roman Strakhov
+minx,Round 1,Group 1,Friday 11:15 - 11:38,Antoine Piau,Lina Tissier,Patryk Milewczyk,András Placskó,Bernhard Brodowsky,Adam Polkowski,Martin Kraut,Roman Strakhov,Hanneke Rijks
+minx,Round 1,Group 2,Friday 11:38 - 12:01,Hanneke Rijks,András Placskó,Adam Polkowski,Patryk Milewczyk,Roman Strakhov,Lina Tissier,Bernhard Brodowsky,Antoine Piau,Tomi Ronkainen
+minx,Round 1,Group 3,Friday 12:01 - 12:25,András Placskó,Patryk Milewczyk,Lina Tissier,Hanneke Rijks,Bernhard Brodowsky,Roman Strakhov,Adam Polkowski,Antoine Piau,Tomi Ronkainen
+333ft,Round 1,Group 1,Friday 12:25 - 12:40,Hanneke Rijks,András Placskó,Gregor Billing,Antoine Piau,Roman Strakhov,Patryk Milewczyk
+333ft,Round 1,Group 2,Friday 12:40 - 12:55,Hanneke Rijks,Lina Tissier,Patryk Milewczyk,András Placskó,Antoine Piau,Adam Polkowski
+333ft,Round 2,Group 1,Friday 12:55 - 13:05,Alexander Olleta del Molino,Adam Polkowski,Hanneke Rijks
+skewb,Round 1,Group 1,Friday 14:30 - 14:45,Martin Kraut,Bernard Solomon,Kamil Pawlak,Roman Strakhov,Lina Tissier,Antoine Piau,Bernhard Brodowsky,Patryk Milewczyk,Gregor Billing
+skewb,Round 1,Group 2,Friday 14:45 - 15:00,Martin Kraut,Bernard Solomon,Kamil Pawlak,Roman Strakhov,Lina Tissier,Antoine Piau,András Placskó,Hanneke Rijks,István Szepesi-Nagy
+skewb,Round 1,Group 3,Friday 15:00 - 15:15,Martin Kraut,Bernard Solomon,Kamil Pawlak,Roman Strakhov,András Placskó,Antoine Piau,Bernhard Brodowsky,Hanneke Rijks,István Szepesi-Nagy
+skewb,Round 1,Group 4,Friday 15:15 - 15:30,Bernard Solomon,Lina Tissier,András Placskó,Roman Strakhov,Adam Polkowski,Antoine Piau,Bernhard Brodowsky,Hanneke Rijks,István Szepesi-Nagy
+555,Round 1,Group 1,Friday 15:30 - 15:55,Bernard Solomon,Lina Tissier,Alexander Olleta del Molino,Fabian Simon,Anna Prabucka,Clara Lafourcade,Bernhard Brodowsky,András Placskó,Patryk Milewczyk
+555,Round 1,Group 2,Friday 15:55 - 16:20,Marcin Jakubowski,Tomi Ronkainen,Klaus Andersen,Fabian Simon,Anna Prabucka,Clara Lafourcade,Kamil Pawlak,Nora Christ,Patryk Milewczyk
+555,Round 1,Group 3,Friday 16:20 - 16:45,Marcin Jakubowski,Helmut Heilig,Nora Christ,Bernard Solomon,Alexander Olleta del Molino,Adam Polkowski,Zoé de Moffarts,Fredrik Trondhjem,Fabian Simon
+555,Round 1,Group 4,Friday 16:45 - 17:10,Helmut Heilig,Nora Christ,Bernard Solomon,Alexander Olleta del Molino,Adam Polkowski,Marcin Jakubowski,Zoé de Moffarts,Fredrik Trondhjem,Fabian Simon
+555,Round 1,Group 5,Friday 17:10 - 17:35,Nora Christ,Helmut Heilig,Bernard Solomon,Alexander Olleta del Molino,Adam Polkowski,Zoé de Moffarts,Fredrik Trondhjem,Fabian Simon,Clara Lafourcade
+clock,Round 1,Group 1,Friday 17:35 - 17:55,Roman Strakhov,Antoine Piau,István Szepesi-Nagy,Arthur Garcin,Diana Murnik,Dmitry Aniskin,Jernej Omulec,Elisabet Delgado Mas,Martin Kraut
+clock,Round 1,Group 2,Friday 17:55 - 18:15,Roman Strakhov,Antoine Piau,István Szepesi-Nagy,Arthur Garcin,Diana Murnik,Dmitry Aniskin,Jernej Omulec,Elisabet Delgado Mas,Gregor Billing
+sq1,Round 1,Group 1,Friday 18:15 - 18:31,Roman Strakhov,Gregor Billing,Markus Pirzer,Arthur Garcin,Diana Murnik,Dmitry Aniskin,Ron van Bruchem,Elisabet Delgado Mas,Martin Kraut
+sq1,Round 1,Group 2,Friday 18:31 - 18:48,Gregor Billing,Markus Pirzer,Roman Strakhov,Ron van Bruchem,Arthur Garcin,Diana Murnik,Dmitry Aniskin,Elisabet Delgado Mas,Martin Kraut
+sq1,Round 1,Group 3,Friday 18:48 - 19:05,Gregor Billing,Markus Pirzer,Roman Strakhov,Ron van Bruchem,Arthur Garcin,Diana Murnik,Elisabet Delgado Mas,Helmut Heilig,Nora Christ
+444,Round 1,Group 1,Saturday 09:15 - 09:35,Markus Pirzer,István Szepesi-Nagy,Bernard Solomon,Diana Murnik,Lina Tissier,Elisabet Delgado Mas,Hippolyte Moreau,Adam Polkowski,Henrik Buus Aagaard
+444,Round 1,Group 2,Saturday 09:35 - 09:55,Ron van Bruchem,Karina Grandjean Beck,Tomáš Novotný,Diana Murnik,Kristýna Vaštová,Elisabet Delgado Mas,Marko Striieshyn,Adam Polkowski,Henrik Buus Aagaard
+444,Round 1,Group 3,Saturday 09:55 - 10:15,Ron van Bruchem,Karina Grandjean Beck,Tomáš Novotný,Diana Murnik,Kristýna Vaštová,Elisabet Delgado Mas,Marko Striieshyn,Adam Polkowski,Henrik Buus Aagaard
+444,Round 1,Group 4,Saturday 10:15 - 10:35,Markus Pirzer,Clara Lafourcade,Kristýna Vaštová,Marko Striieshyn,Reto Bubendorf,Nora Christ,Martin Kraut,Helmut Heilig,Matěj Mužátko
+444,Round 1,Group 5,Saturday 10:35 - 10:55,Markus Pirzer,Clara Lafourcade,Kristýna Vaštová,Marko Striieshyn,Reto Bubendorf,Helmut Heilig,Nora Christ,Martin Kraut,Matěj Mužátko
+444,Round 1,Group 6,Saturday 10:55 - 11:15,Markus Pirzer,Clara Lafourcade,Kristýna Vaštová,Marko Striieshyn,Reto Bubendorf,Helmut Heilig,Martin Kraut,Nora Christ,Matěj Mužátko
+333,Round 1,Group 1,Saturday 11:15 - 11:31,Lina Tissier,Hippolyte Moreau,Linus Fresz,András Placskó,Hanneke Rijks,Wojciech Szatanowski,Tristan Wright,Piotr Trząski,Oleg Gritsenko
+333,Round 1,Group 2,Saturday 11:31 - 11:48,Lina Tissier,Hippolyte Moreau,Linus Fresz,András Placskó,Hanneke Rijks,Wojciech Szatanowski,Piotr Trząski,Oleg Gritsenko,Antoine Piau
+333,Round 1,Group 3,Saturday 11:48 - 12:05,Lina Tissier,Hippolyte Moreau,Linus Fresz,Fredrik Trondhjem,Tristan Wright,Piotr Trząski,Oleg Gritsenko,Antoine Piau,Zoé de Moffarts
+333,Round 1,Group 4,Saturday 12:05 - 12:21,András Placskó,Bernard Solomon,Gregor Billing,Lina Tissier,Tristan Wright,Hanneke Rijks,Hippolyte Moreau,Linus Fresz,Piotr Trząski
+333,Round 1,Group 5,Saturday 12:21 - 12:38,Bernard Solomon,Gregor Billing,Hanneke Rijks,Hippolyte Moreau,Tristan Wright,Linus Fresz,Oleg Gritsenko,Piotr Trząski,Zoé de Moffarts
+333,Round 1,Group 6,Saturday 12:38 - 12:55,Lina Tissier,Gregor Billing,Hanneke Rijks,Tristan Wright,Linus Fresz,Oleg Gritsenko,Piotr Trząski,Helmut Heilig,Bernhard Brodowsky
+333,Round 1,Group 7,Saturday 12:55 - 13:11,Lina Tissier,András Placskó,Gregor Billing,Hanneke Rijks,Tristan Wright,Oleg Gritsenko,Linus Fresz,Helmut Heilig,Zoé de Moffarts
+333,Round 1,Group 8,Saturday 13:11 - 13:28,Lina Tissier,Wojciech Szatanowski,Fredrik Trondhjem,István Szepesi-Nagy,András Placskó,Gregor Billing,Hanneke Rijks,Helmut Heilig,Zoé de Moffarts
+333,Round 1,Group 9,Saturday 13:28 - 13:45,Lina Tissier,Wojciech Szatanowski,Fredrik Trondhjem,Linus Fresz,András Placskó,Antoine Piau,Hanneke Rijks,Tristan Wright,Zoé de Moffarts
+333oh,Round 1,Group 1,Saturday 14:15 - 14:33,Lina Tissier,Piotr Trząski,Fredrik Trondhjem,Linus Fresz,András Placskó,Antoine Piau,Hanneke Rijks,Tristan Wright,Klaus Andersen
+333oh,Round 1,Group 2,Saturday 14:33 - 14:51,Philippe Virouleau,Piotr Trząski,Lina Tissier,Linus Fresz,Roman Strakhov,Fredrik Trondhjem,Marcel Peters,András Placskó,Klaus Andersen
+333oh,Round 1,Group 3,Saturday 14:51 - 15:09,Philippe Virouleau,Piotr Trząski,Lina Tissier,Roman Strakhov,Fredrik Trondhjem,Francisco Pérez Padilla,Marcel Peters,Ron van Bruchem,Klaus Andersen
+333oh,Round 1,Group 4,Saturday 15:09 - 15:27,András Placskó,Antoine Piau,Elisabet Delgado Mas,Kristýna Vaštová,Marcin Jakubowski,Hanneke Rijks,Marcel Peters,Adam Polkowski,Klaus Andersen
+333oh,Round 1,Group 5,Saturday 15:27 - 15:45,Hippolyte Moreau,Piotr Trząski,Elisabet Delgado Mas,Kristýna Vaštová,Wojciech Szatanowski,István Szepesi-Nagy,Philippe Virouleau,Adam Polkowski,Manuel Bühler
+222,Round 1,Group 1,Saturday 15:45 - 16:00,Wojciech Szatanowski,Ron van Bruchem,István Szepesi-Nagy,Kristýna Vaštová,Philippe Virouleau,Manuel Bühler,Lina Tissier,Adam Polkowski,Henrik Buus Aagaard
+222,Round 1,Group 2,Saturday 16:00 - 16:15,Ron van Bruchem,István Szepesi-Nagy,Philippe Virouleau,Manuel Bühler,Lina Tissier,Henrik Buus Aagaard,Helmut Heilig,Patryk Milewczyk,Tristan Wright
+222,Round 1,Group 3,Saturday 16:15 - 16:30,Ron van Bruchem,Nora Christ,Clara Lafourcade,Hippolyte Moreau,Wojciech Szatanowski,Klaus Andersen,István Szepesi-Nagy,Philippe Virouleau,András Placskó
+222,Round 1,Group 4,Saturday 16:30 - 16:45,Oleg Gritsenko,Nora Christ,Alexander Olleta del Molino,Arthur Garcin,Olivier Guernion,Klaus Andersen,Michal Málek,Clara Lafourcade,András Placskó
+222,Round 1,Group 5,Saturday 16:45 - 17:00,Alexander Olleta del Molino,Nora Christ,Raúl Ramos,Arthur Garcin,Olivier Guernion,Klaus Andersen,Bernard Solomon,Ron van Bruchem,András Placskó
+222,Round 1,Group 6,Saturday 17:00 - 17:15,Alexander Olleta del Molino,Fabian Simon,Raúl Ramos,Michal Málek,Olivier Guernion,Klaus Andersen,Bernard Solomon,Ron van Bruchem,András Placskó
+pyram,Round 1,Group 1,Saturday 17:15 - 17:33,Kévin Cagnon,Fabian Simon,Raúl Ramos,Michal Málek,Francisco Pérez Padilla,Gregor Billing,Bernard Solomon,Ron van Bruchem,Roman Strakhov
+pyram,Round 1,Group 2,Saturday 17:33 - 17:52,Kévin Cagnon,Fabian Simon,Francisco Pérez Padilla,Michal Málek,Gregor Billing,Roman Strakhov,Raúl Ramos,Olivier Guernion,Diana Murnik
+pyram,Round 1,Group 3,Saturday 17:52 - 18:11,Kévin Cagnon,Francisco Pérez Padilla,Gregor Billing,Roman Strakhov,Fabian Simon,Raúl Ramos,Michal Málek,Olivier Guernion,Bernard Solomon
+pyram,Round 1,Group 4,Saturday 18:11 - 18:30,Kévin Cagnon,Francisco Pérez Padilla,Gregor Billing,Roman Strakhov,Fabian Simon,Diana Murnik,Oleg Gritsenko,Alexander Olleta del Molino,Raúl Ramos
+333bf,Round 1,Group 1,Saturday 18:30 - 18:48,Gregor Billing,Wojciech Szatanowski,Roman Strakhov,Kristýna Vaštová,Diana Murnik,Marcin Jakubowski,Bernard Solomon,Oleg Gritsenko,Marko Striieshyn
+333bf,Round 1,Group 2,Saturday 18:48 - 19:07,Raúl Ramos,Wojciech Szatanowski,Zoé de Moffarts,Kristýna Vaštová,Diana Murnik,Marcin Jakubowski,Bernard Solomon,Gregor Billing,Marko Striieshyn
+333bf,Round 1,Group 3,Saturday 19:07 - 19:26,Raúl Ramos,Wojciech Szatanowski,Zoé de Moffarts,Kristýna Vaštová,Manuel Bühler,Marcin Jakubowski,Bernard Solomon,Tristan Wright,Marko Striieshyn
+333bf,Round 1,Group 4,Saturday 19:26 - 19:45,Raúl Ramos,Reto Bubendorf,Zoé de Moffarts,Francisco Pérez Padilla,Manuel Bühler,Martin Kraut,István Szepesi-Nagy,Tristan Wright,Diana Murnik
+sq1,Round 2,Group 1,Saturday 19:45 - 20:00,Máté Berecz,Kévin Cagnon,Arthur Garcin
+clock,Round 2,Group 1,Saturday 20:00 - 20:15,Máté Berecz,Kévin Cagnon,Arthur Garcin
+minx,Round 2,Group 1,Saturday 20:15 - 20:30,Máté Berecz,Kévin Cagnon,Martin Kraut
+555,Round 2,Group 1,Sunday 08:15 - 08:50,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon,Piotr Trząski,András Placskó,István Szepesi-Nagy,Michal Málek,Elisabet Delgado Mas,Fabian Simon
+skewb,Round 2,Group 1,Sunday 08:50 - 09:05,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon,Piotr Trząski,András Placskó,Martin Kraut,Michal Málek,Elisabet Delgado Mas,Fabian Simon
+skewb,Round 2,Group 2,Sunday 09:05 - 09:20,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon,Francisco Pérez Padilla,Olivier Guernion,Martin Kraut,Gregor Billing,Markus Pirzer,Karina Grandjean Beck
+pyram,Round 2,Group 1,Sunday 09:20 - 09:35,Máté Berecz,Kévin Cagnon,Francisco Pérez Padilla,István Szepesi-Nagy,Olivier Guernion,Martin Kraut,Gregor Billing,Markus Pirzer,Karina Grandjean Beck
+pyram,Round 2,Group 2,Sunday 09:35 - 09:50,Máté Berecz,Kévin Cagnon,Francisco Pérez Padilla,István Szepesi-Nagy,Olivier Guernion,Martin Kraut,Gregor Billing,Markus Pirzer,Karina Grandjean Beck
+777,Round 2,Group 1,Sunday 09:50 - 10:15,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon
+666,Round 2,Group 1,Sunday 10:15 - 10:35,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon
+555,Round 2,Group 1,Sunday 10:35 - 10:55,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon
+skewb,Round 2,Group 1,Sunday 10:55 - 11:05,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon
+pyram,Round 2,Group 1,Sunday 11:05 - 11:15,Kévin Cagnon,Michal Málek,Elisabet Delgado Mas
+333bf,Round 2,Group 1,Sunday 11:15 - 11:25,Kévin Cagnon,Michal Málek,Elisabet Delgado Mas
+333,Round 2,Group 1,Sunday 11:25 - 11:43,Lina Tissier,Michal Málek,Elisabet Delgado Mas,Klaus Andersen,Ron van Bruchem,Oleg Gritsenko,István Szepesi-Nagy,Marcel Peters,Gregor Billing
+333,Round 2,Group 2,Sunday 11:43 - 12:01,Lina Tissier,Michal Málek,Elisabet Delgado Mas,Klaus Andersen,Ron van Bruchem,Oleg Gritsenko,István Szepesi-Nagy,Marcel Peters,Gregor Billing
+333,Round 2,Group 3,Sunday 12:01 - 12:20,Lina Tissier,Klaus Andersen,Ron van Bruchem,Oleg Gritsenko,Alexander Olleta del Molino,Markus Pirzer,István Szepesi-Nagy,Marcel Peters,Gregor Billing
+444,Round 2,Group 1,Sunday 12:20 - 12:42,Bernard Solomon,Tomáš Novotný,Adam Polkowski,Dmitry Aniskin,Alexander Olleta del Molino,Markus Pirzer,Clara Lafourcade,Philippe Virouleau,Anna Prabucka
+444,Round 2,Group 2,Sunday 12:42 - 13:05,Bernard Solomon,Tomáš Novotný,Adam Polkowski,Dmitry Aniskin,Jernej Omulec,Clara Lafourcade,Helmut Heilig,Henrik Buus Aagaard,Nora Christ
+333oh,Round 2,Group 1,Sunday 13:35 - 13:52,Hippolyte Moreau,Fabian Simon,Bernard Solomon,Linus Fresz,Jernej Omulec,Matěj Mužátko,Helmut Heilig,Reto Bubendorf,Nora Christ
+333oh,Round 2,Group 2,Sunday 13:52 - 14:10,Bernard Solomon,Linus Fresz,Matěj Mužátko,Tomáš Novotný,Jernej Omulec,Adam Polkowski,Helmut Heilig,Anna Prabucka,Nora Christ
+222,Round 2,Group 1,Sunday 14:10 - 14:22,Kristýna Vaštová,Lina Tissier,Diana Murnik,Klaus Andersen,Piotr Trząski,András Placskó,Olivier Guernion,Anna Prabucka,Francisco Pérez Padilla
+222,Round 2,Group 2,Sunday 14:22 - 14:35,Kristýna Vaštová,Lina Tissier,Diana Murnik,Klaus Andersen,Piotr Trząski,András Placskó,Olivier Guernion,Anna Prabucka,Francisco Pérez Padilla
+333,Round 3,Group 1,Sunday 14:35 - 14:50,Kristýna Vaštová,Lina Tissier,Diana Murnik,Klaus Andersen,Piotr Trząski,András Placskó
+333,Round 3,Group 2,Sunday 14:50 - 15:05,Kristýna Vaštová,Lina Tissier,Diana Murnik,Klaus Andersen,Piotr Trząski,András Placskó
+444,Round 3,Group 1,Sunday 15:05 - 15:25,Máté Berecz,Fabian Simon,Reto Bubendorf
+333oh,Round 3,Group 1,Sunday 15:25 - 15:40,Máté Berecz,Antoine Piau,Karina Grandjean Beck
+222,Round 3,Group 1,Sunday 15:40 - 15:55,Karina Grandjean Beck,Linus Fresz,Hippolyte Moreau

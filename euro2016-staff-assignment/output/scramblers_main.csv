@@ -1,0 +1,89 @@
+Event,Round,Group,Timeframe,Scrambler 1,Scrambler 2,Scrambler 3,Scrambler 4,Scrambler 5,Scrambler 6,Scrambler 7,Scrambler 8,Scrambler 9
+777,Round 1,Group 1,Friday 09:00 - 09:25,Matěj Mužátko,Lorenzo Vigani Poli,Simone Ciancotti,Stefan Huber,Daniel Sheppard,Erik Akkersdijk,Linus Fresz,Dániel Varga,Ron van Bruchem
+777,Round 1,Group 2,Friday 09:25 - 09:50,Manuel Bühler,Radu Făciu,Simone Ciancotti,Stefan Huber,Daniel Sheppard,Erik Akkersdijk,Reto Bubendorf,Dániel Varga,Ron van Bruchem
+777,Round 1,Group 3,Friday 09:50 - 10:15,Manuel Bühler,Radu Făciu,Dániel Varga,Stefan Huber,Ron van Bruchem,Daniel Sheppard,Erik Akkersdijk,Simone Ciancotti,Reto Bubendorf
+666,Round 1,Group 1,Friday 10:15 - 10:35,Manuel Bühler,Radu Făciu,Daniel Sheppard,Ron van Bruchem,Erik Akkersdijk,Stefan Huber,Reto Bubendorf,Dániel Varga,Simone Ciancotti
+666,Round 1,Group 2,Friday 10:35 - 10:55,Radu Făciu,Manuel Bühler,Erik Akkersdijk,Ron van Bruchem,Dániel Varga,Reto Bubendorf,Daniel Sheppard,Simone Ciancotti,Stefan Huber
+666,Round 1,Group 3,Friday 10:55 - 11:15,Linus Fresz,Lorenzo Vigani Poli,Matěj Mužátko,Radu Făciu,Daniel Sheppard,Ron van Bruchem,Erik Akkersdijk,Simone Ciancotti,Reto Bubendorf
+minx,Round 1,Group 1,Friday 11:15 - 11:38,Linus Fresz,Lorenzo Vigani Poli,Matěj Mužátko,Kamil Pawlak,Bernard Solomon,Gregor Billing,Karina Grandjean Beck,Henrik Buus Aagaard,Tristan Wright
+minx,Round 1,Group 2,Friday 11:38 - 12:01,Alexander Olleta del Molino,Gregor Billing,Matěj Mužátko,Linus Fresz,Lorenzo Vigani Poli,Manuel Bühler,Elisabet Delgado Mas,Zoé de Moffarts,Tristan Wright
+minx,Round 1,Group 3,Friday 12:01 - 12:25,Alexander Olleta del Molino,Kamil Pawlak,Gregor Billing,Matěj Mužátko,Lorenzo Vigani Poli,Manuel Bühler,Elisabet Delgado Mas,Zoé de Moffarts,Linus Fresz
+333ft,Round 1,Group 1,Friday 12:25 - 12:40,Bernard Solomon,Kamil Pawlak,Martin Kraut,Alexander Olleta del Molino,Ivan Terekh,Adam Polkowski
+333ft,Round 1,Group 2,Friday 12:40 - 12:55,Bernard Solomon,Kamil Pawlak,Martin Kraut,Alexander Olleta del Molino,Ivan Terekh,Gregor Billing
+333ft,Round 2,Group 1,Friday 12:55 - 13:05,Bernard Solomon,Martin Kraut,Kamil Pawlak
+skewb,Round 1,Group 1,Friday 14:30 - 14:45,Alexander Olleta del Molino,Ivan Terekh,Dmitry Aniskin,Manuel Bühler,Matěj Mužátko,Oleg Gritsenko,Linus Fresz,Henrik Buus Aagaard,Reto Bubendorf
+skewb,Round 1,Group 2,Friday 14:45 - 15:00,Alexander Olleta del Molino,Raúl Ramos,Dmitry Aniskin,Manuel Bühler,Matěj Mužátko,Oleg Gritsenko,Linus Fresz,Henrik Buus Aagaard,Reto Bubendorf
+skewb,Round 1,Group 3,Friday 15:00 - 15:15,Alexander Olleta del Molino,Raúl Ramos,Dmitry Aniskin,Manuel Bühler,Matěj Mužátko,Oleg Gritsenko,Linus Fresz,Henrik Buus Aagaard,Reto Bubendorf
+skewb,Round 1,Group 4,Friday 15:15 - 15:30,Alexander Olleta del Molino,Raúl Ramos,Dmitry Aniskin,Manuel Bühler,Matěj Mužátko,Oleg Gritsenko,Linus Fresz,Henrik Buus Aagaard,Reto Bubendorf
+555,Round 1,Group 1,Friday 15:30 - 15:55,Marcel Peters,Mariano D'Imperio,Lorenzo Vigani Poli,Gregor Billing,Roman Strakhov,Antoine Piau,Radu Făciu,Hippolyte Moreau,Dmitry Aniskin
+555,Round 1,Group 2,Friday 15:55 - 16:20,Marcel Peters,Mariano D'Imperio,Lorenzo Vigani Poli,Daniel Sheppard,Raúl Ramos,Ilya Tsiareshka,Radu Făciu,Hippolyte Moreau,Martin Kraut
+555,Round 1,Group 3,Friday 16:20 - 16:45,Martin Kraut,Kamil Pawlak,Dániel Varga,Stefan Huber,Karina Grandjean Beck,Philippe Virouleau,Willi Mickein,Marcel Peters,Erik Akkersdijk
+555,Round 1,Group 4,Friday 16:45 - 17:10,Martin Kraut,Kamil Pawlak,Dániel Varga,Stefan Huber,Karina Grandjean Beck,Philippe Virouleau,Willi Mickein,Marcel Peters,Erik Akkersdijk
+555,Round 1,Group 5,Friday 17:10 - 17:35,Martin Kraut,Kamil Pawlak,Stefan Huber,Dániel Varga,Philippe Virouleau,Karina Grandjean Beck,Willi Mickein,Marcel Peters,Erik Akkersdijk
+clock,Round 1,Group 1,Friday 17:35 - 17:55,Ron van Bruchem,Reto Bubendorf,Dániel Varga,Michael Kristel,Gregor Billing,Oleg Gritsenko,Philippe Virouleau,Willi Mickein,Jesús Masanet García
+clock,Round 1,Group 2,Friday 17:55 - 18:15,Ron van Bruchem,Matěj Mužátko,Marcin Jakubowski,Dániel Varga,Daniel Sheppard,Ilya Tsiareshka,Emil Mickein,Raúl Ramos,Klaus Andersen
+sq1,Round 1,Group 1,Friday 18:15 - 18:31,Antoine Piau,Matěj Mužátko,István Szepesi-Nagy,Jernej Omulec,Daniel Sheppard,Francisco Pérez Padilla,Oleg Gritsenko,Linus Fresz,Henrik Buus Aagaard
+sq1,Round 1,Group 2,Friday 18:31 - 18:48,Reto Bubendorf,Matěj Mužátko,István Szepesi-Nagy,Jernej Omulec,Daniel Sheppard,Oleg Gritsenko,Francisco Pérez Padilla,Linus Fresz,Henrik Buus Aagaard
+sq1,Round 1,Group 3,Friday 18:48 - 19:05,Reto Bubendorf,Matěj Mužátko,István Szepesi-Nagy,Jernej Omulec,Dániel Varga,Oleg Gritsenko,Linus Fresz,Philippe Virouleau,Erik Akkersdijk
+444,Round 1,Group 1,Saturday 09:15 - 09:35,Antoine Piau,Gregor Billing,Dmitry Aniskin,Roman Strakhov,Reto Bubendorf,Matěj Mužátko,Francisco Pérez Padilla,Alexander Olleta del Molino,Jernej Omulec
+444,Round 1,Group 2,Saturday 09:35 - 09:55,Kévin Cagnon,Gregor Billing,Dmitry Aniskin,Máté Berecz,Reto Bubendorf,Matěj Mužátko,Francisco Pérez Padilla,Alexander Olleta del Molino,Jernej Omulec
+444,Round 1,Group 3,Saturday 09:55 - 10:15,Kévin Cagnon,Máté Berecz,Dmitry Aniskin,Antoine Piau,Reto Bubendorf,Matěj Mužátko,Francisco Pérez Padilla,Alexander Olleta del Molino,Jernej Omulec
+444,Round 1,Group 4,Saturday 10:15 - 10:35,Kévin Cagnon,Máté Berecz,Antoine Piau,Ron van Bruchem,Karina Grandjean Beck,Simone Ciancotti,Radu Făciu,Dmitry Aniskin,Tomáš Novotný
+444,Round 1,Group 5,Saturday 10:35 - 10:55,Kévin Cagnon,Máté Berecz,Antoine Piau,Karina Grandjean Beck,Ron van Bruchem,Simone Ciancotti,Radu Făciu,Dmitry Aniskin,Tomáš Novotný
+444,Round 1,Group 6,Saturday 10:55 - 11:15,Máté Berecz,Kévin Cagnon,Antoine Piau,Ron van Bruchem,Karina Grandjean Beck,Simone Ciancotti,Radu Făciu,Dmitry Aniskin,Tomáš Novotný
+333,Round 1,Group 1,Saturday 11:15 - 11:31,Máté Berecz,Kévin Cagnon,Arthur Garcin,Roman Strakhov,Philippe Virouleau,István Szepesi-Nagy,Erik Akkersdijk,Bernard Solomon,Gregor Billing
+333,Round 1,Group 2,Saturday 11:31 - 11:48,Máté Berecz,Kévin Cagnon,Arthur Garcin,Roman Strakhov,Philippe Virouleau,István Szepesi-Nagy,Erik Akkersdijk,Bernard Solomon,Gregor Billing
+333,Round 1,Group 3,Saturday 11:48 - 12:05,Máté Berecz,Kévin Cagnon,Arthur Garcin,Roman Strakhov,Philippe Virouleau,István Szepesi-Nagy,Erik Akkersdijk,Bernard Solomon,Gregor Billing
+333,Round 1,Group 4,Saturday 12:05 - 12:21,Kévin Cagnon,Máté Berecz,Arthur Garcin,Roman Strakhov,Fredrik Trondhjem,Dániel Varga,István Szepesi-Nagy,Philippe Virouleau,Erik Akkersdijk
+333,Round 1,Group 5,Saturday 12:21 - 12:38,Máté Berecz,Kévin Cagnon,Roman Strakhov,Wojciech Szatanowski,Fredrik Trondhjem,Dániel Varga,Philippe Virouleau,István Szepesi-Nagy,András Placskó
+333,Round 1,Group 6,Saturday 12:38 - 12:55,Kévin Cagnon,Roman Strakhov,Wojciech Szatanowski,Fredrik Trondhjem,Dániel Varga,István Szepesi-Nagy,Philippe Virouleau,András Placskó,Antoine Piau
+333,Round 1,Group 7,Saturday 12:55 - 13:11,Kévin Cagnon,Arthur Garcin,Wojciech Szatanowski,Erik Akkersdijk,Roman Strakhov,Fredrik Trondhjem,Dániel Varga,István Szepesi-Nagy,Antoine Piau
+333,Round 1,Group 8,Saturday 13:11 - 13:28,Máté Berecz,Arthur Garcin,Erik Akkersdijk,Bernard Solomon,Hippolyte Moreau,Ton Dennenbroek,Philippe Virouleau,Roman Strakhov,Antoine Piau
+333,Round 1,Group 9,Saturday 13:28 - 13:45,Máté Berecz,Arthur Garcin,Erik Akkersdijk,Bernard Solomon,Hippolyte Moreau,Ton Dennenbroek,Philippe Virouleau,Kévin Cagnon,Roman Strakhov
+333oh,Round 1,Group 1,Saturday 14:15 - 14:33,Máté Berecz,Kévin Cagnon,Erik Akkersdijk,Hippolyte Moreau,Ton Dennenbroek,István Szepesi-Nagy,Philippe Virouleau,Gregor Billing,Roman Strakhov
+333oh,Round 1,Group 2,Saturday 14:33 - 14:51,Kévin Cagnon,Arthur Garcin,Bernard Solomon,Erik Akkersdijk,Hippolyte Moreau,István Szepesi-Nagy,Wojciech Szatanowski,Gregor Billing,Ton Dennenbroek
+333oh,Round 1,Group 3,Saturday 14:51 - 15:09,Máté Berecz,Arthur Garcin,Bernard Solomon,Kévin Cagnon,Erik Akkersdijk,István Szepesi-Nagy,Wojciech Szatanowski,Gregor Billing,Hippolyte Moreau
+333oh,Round 1,Group 4,Saturday 15:09 - 15:27,Máté Berecz,Arthur Garcin,Bernard Solomon,Ton Dennenbroek,Stefan Huber,Helmut Heilig,Wojciech Szatanowski,Emil Mickein,Ron van Bruchem
+333oh,Round 1,Group 5,Saturday 15:27 - 15:45,Máté Berecz,Kévin Cagnon,Arthur Garcin,Bernard Solomon,Stefan Huber,Helmut Heilig,Erik Akkersdijk,Emil Mickein,Clara Lafourcade
+222,Round 1,Group 1,Saturday 15:45 - 16:00,Máté Berecz,Kévin Cagnon,Arthur Garcin,Bernard Solomon,Stefan Huber,Erik Akkersdijk,Clara Lafourcade,Emil Mickein,Hippolyte Moreau
+222,Round 1,Group 2,Saturday 16:00 - 16:15,Máté Berecz,Kévin Cagnon,Arthur Garcin,Bernard Solomon,Erik Akkersdijk,Clara Lafourcade,Hippolyte Moreau,Wojciech Szatanowski,Dániel Varga
+222,Round 1,Group 3,Saturday 16:15 - 16:30,Kévin Cagnon,Arthur Garcin,Fabian Simon,Piotr Trząski,Diana Murnik,Bernard Solomon,Jernej Omulec,Ton Dennenbroek,Erik Akkersdijk
+222,Round 1,Group 4,Saturday 16:30 - 16:45,Máté Berecz,Linus Fresz,Gregor Billing,Piotr Trząski,Diana Murnik,Roman Strakhov,Jernej Omulec,Ton Dennenbroek,Francisco Pérez Padilla
+222,Round 1,Group 5,Saturday 16:45 - 17:00,Máté Berecz,Linus Fresz,Gregor Billing,Piotr Trząski,Matěj Mužátko,Roman Strakhov,Francisco Pérez Padilla,Ton Dennenbroek,Oleg Gritsenko
+222,Round 1,Group 6,Saturday 17:00 - 17:15,Máté Berecz,Linus Fresz,Gregor Billing,Kévin Cagnon,Matěj Mužátko,Roman Strakhov,Lorenzo Vigani Poli,Ton Dennenbroek,Oleg Gritsenko
+pyram,Round 1,Group 1,Saturday 17:15 - 17:33,Máté Berecz,Matěj Mužátko,Linus Fresz,Lorenzo Vigani Poli,Oleg Gritsenko,Alexander Olleta del Molino,Jernej Omulec,Ilya Tsiareshka,Willi Mickein
+pyram,Round 1,Group 2,Saturday 17:33 - 17:52,Máté Berecz,Reto Bubendorf,Matěj Mužátko,Lorenzo Vigani Poli,Arthur Garcin,Linus Fresz,Piotr Trząski,Oleg Gritsenko,Alexander Olleta del Molino
+pyram,Round 1,Group 3,Saturday 17:52 - 18:11,Reto Bubendorf,Matěj Mužátko,Arthur Garcin,Linus Fresz,Lorenzo Vigani Poli,Piotr Trząski,Jernej Omulec,Oleg Gritsenko,Alexander Olleta del Molino
+pyram,Round 1,Group 4,Saturday 18:11 - 18:30,Reto Bubendorf,Máté Berecz,Arthur Garcin,Matěj Mužátko,Linus Fresz,Piotr Trząski,Jernej Omulec,Willi Mickein,Lorenzo Vigani Poli
+333bf,Round 1,Group 1,Saturday 18:30 - 18:48,Máté Berecz,Kévin Cagnon,Reto Bubendorf,Matěj Mužátko,Arthur Garcin,Linus Fresz,Jernej Omulec,Willi Mickein,Francisco Pérez Padilla
+333bf,Round 1,Group 2,Saturday 18:48 - 19:07,Máté Berecz,Kévin Cagnon,Reto Bubendorf,Piotr Trząski,Fabian Simon,Matěj Mužátko,Linus Fresz,Willi Mickein,Francisco Pérez Padilla
+333bf,Round 1,Group 3,Saturday 19:07 - 19:26,Máté Berecz,Kévin Cagnon,Reto Bubendorf,Piotr Trząski,Fabian Simon,Michal Málek,Matěj Mužátko,Marcel Peters,Ivan Terekh
+333bf,Round 1,Group 4,Saturday 19:26 - 19:45,Máté Berecz,Kévin Cagnon,Arthur Garcin,Piotr Trząski,Fabian Simon,Michal Málek,Roman Strakhov,Marcel Peters,Ivan Terekh
+sq1,Round 2,Group 1,Saturday 19:45 - 20:00,Linus Fresz,Dániel Varga,Lorenzo Vigani Poli
+clock,Round 2,Group 1,Saturday 20:00 - 20:15,Dániel Varga,Matěj Mužátko,Reto Bubendorf
+minx,Round 2,Group 1,Saturday 20:15 - 20:30,Dániel Varga,Matěj Mužátko,Henrik Buus Aagaard
+555,Round 2,Group 1,Sunday 08:15 - 08:50,Mariano D'Imperio,Antoine Piau,Dmitry Aniskin,Marcel Peters,Henrik Buus Aagaard,Stefan Huber,Manuel Bühler,Roman Strakhov,Tristan Wright
+skewb,Round 2,Group 1,Sunday 08:50 - 09:05,Daniel Sheppard,Linus Fresz,Dmitry Aniskin,Ron van Bruchem,Henrik Buus Aagaard,Reto Bubendorf,Manuel Bühler,Oleg Gritsenko,Erik Akkersdijk
+skewb,Round 2,Group 2,Sunday 09:05 - 09:20,Daniel Sheppard,Linus Fresz,Alexander Olleta del Molino,Ron van Bruchem,Dániel Varga,Matěj Mužátko,Oleg Gritsenko,Erik Akkersdijk,Piotr Trząski
+pyram,Round 2,Group 1,Sunday 09:20 - 09:35,Daniel Sheppard,Linus Fresz,Alexander Olleta del Molino,Ron van Bruchem,Dániel Varga,Matěj Mužátko,Oleg Gritsenko,Erik Akkersdijk,Thaynara Santana de Oliveira
+pyram,Round 2,Group 2,Sunday 09:35 - 09:50,Daniel Sheppard,Linus Fresz,Alexander Olleta del Molino,Ron van Bruchem,Dániel Varga,Matěj Mužátko,Oleg Gritsenko,Erik Akkersdijk,Thaynara Santana de Oliveira
+777,Round 2,Group 1,Sunday 09:50 - 10:15,Daniel Sheppard,Reto Bubendorf,Radu Făciu
+666,Round 2,Group 1,Sunday 10:15 - 10:35,Daniel Sheppard,Reto Bubendorf,Dániel Varga
+555,Round 2,Group 1,Sunday 10:35 - 10:55,Gregor Billing,Dmitry Aniskin,Dániel Varga
+skewb,Round 2,Group 1,Sunday 10:55 - 11:05,Daniel Sheppard,Dmitry Aniskin,Dániel Varga
+pyram,Round 2,Group 1,Sunday 11:05 - 11:15,Daniel Sheppard,Thaynara Santana de Oliveira,Dániel Varga
+333bf,Round 2,Group 1,Sunday 11:15 - 11:25,Daniel Sheppard,Thaynara Santana de Oliveira,Clara Lafourcade
+333,Round 2,Group 1,Sunday 11:25 - 11:43,Thaynara Santana de Oliveira,Clara Lafourcade,Philippe Virouleau,Simone Ciancotti,Anna Prabucka,Kristýna Vaštová,Diana Murnik,Leonid Palchenko,Marcin Jakubowski
+333,Round 2,Group 2,Sunday 11:43 - 12:01,Thaynara Santana de Oliveira,Clara Lafourcade,Philippe Virouleau,Simone Ciancotti,Anna Prabucka,Kristýna Vaštová,Diana Murnik,Leonid Palchenko,Marcin Jakubowski
+333,Round 2,Group 3,Sunday 12:01 - 12:20,Thaynara Santana de Oliveira,Clara Lafourcade,Philippe Virouleau,Simone Ciancotti,Anna Prabucka,Kristýna Vaštová,Diana Murnik,Leonid Palchenko,Marcin Jakubowski
+444,Round 2,Group 1,Sunday 12:20 - 12:42,Daniel Sheppard,Thaynara Santana de Oliveira,Máté Berecz,Hippolyte Moreau,Fabian Simon,Mariano D'Imperio,Linus Fresz,Matěj Mužátko,Reto Bubendorf
+444,Round 2,Group 2,Sunday 12:42 - 13:05,Daniel Sheppard,Thaynara Santana de Oliveira,Máté Berecz,Hippolyte Moreau,Fabian Simon,Mariano D'Imperio,Linus Fresz,Matěj Mužátko,Reto Bubendorf
+333oh,Round 2,Group 1,Sunday 13:35 - 13:52,Daniel Sheppard,Thaynara Santana de Oliveira,Máté Berecz,Kévin Cagnon,Martin Kraut,Erik Akkersdijk,Antoine Piau,Karina Grandjean Beck,Piotr Kózka
+333oh,Round 2,Group 2,Sunday 13:52 - 14:10,Daniel Sheppard,Thaynara Santana de Oliveira,Máté Berecz,Martin Kraut,Erik Akkersdijk,Antoine Piau,Karina Grandjean Beck,Piotr Kózka,Hippolyte Moreau
+222,Round 2,Group 1,Sunday 14:10 - 14:22,Daniel Sheppard,Thaynara Santana de Oliveira,Dániel Varga,Karina Grandjean Beck,Linus Fresz,Marcel Peters,Henrik Buus Aagaard,Manuel Bühler,Elisabet Delgado Mas
+222,Round 2,Group 2,Sunday 14:22 - 14:35,Daniel Sheppard,Thaynara Santana de Oliveira,Dániel Varga,Karina Grandjean Beck,Linus Fresz,Marcel Peters,Henrik Buus Aagaard,Manuel Bühler,Elisabet Delgado Mas
+333,Round 3,Group 1,Sunday 14:35 - 14:50,Thaynara Santana de Oliveira,Philippe Virouleau,Marcin Jakubowski,Clara Lafourcade,Marcel Peters,Henrik Buus Aagaard
+333,Round 3,Group 2,Sunday 14:50 - 15:05,Thaynara Santana de Oliveira,Philippe Virouleau,Marcin Jakubowski,Clara Lafourcade,Marcel Peters,Henrik Buus Aagaard
+444,Round 3,Group 1,Sunday 15:05 - 15:25,Daniel Sheppard,Philippe Virouleau,Thaynara Santana de Oliveira
+333oh,Round 3,Group 1,Sunday 15:25 - 15:40,Daniel Sheppard,Thaynara Santana de Oliveira,Martin Kraut
+222,Round 3,Group 1,Sunday 15:40 - 15:55,Daniel Sheppard,Thaynara Santana de Oliveira,Martin Kraut
