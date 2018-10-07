@@ -33,16 +33,16 @@ output_file = "irregular_scrambles.txt"
 # in addition, I am defining simple patterns for the non-scramble columns in the WCA Scrambles table
 pattern_dict = {
     '222': '^([RUF][\'2]? ){10}[RUF][\'2]?$',               # 2x2x2 scrambles only have [RUF] moves and are standardized to 11 moves.
-    '333': '^([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?$',        # requiring 13 or more moves for 3x3x3 does not match the regulations, 
+    '333': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',        # requiring 13 or more moves for 3x3x3 does not match the regulations, 
                                                             # but serves as a heuristic here to identify unusually short scrambles.
-    '333bf': '^([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}$',
-    '333fm': '^([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?$',
-    '333ft': '^([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?$',
-    '333mbf': '^(([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}($|\|))+$',
-    '333oh': '^([RUFLDB][\'2]? ){12,}[RUFLDB][\'2]?$',
-    '444': '^([RUFLDB]w?[\'2]? ){37,}[RUFLDB]w?[\'2]?$',    # requiring 38 or more moves for 4x4x4 does not match the regulations, 
+    '333bf': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}$',
+    '333fm': '^([RUFLDB][\'2]? ){12,27}[RUFLDB][\'2]?$',
+    '333ft': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
+    '333mbf': '^(([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}($|\|))+$',
+    '333oh': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
+    '444': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?$',    # requiring 38 or more moves for 4x4x4 does not match the regulations, 
                                                             # but serves as a heuristic here to identify unusually short scrambles.
-    '444bf': '^([RUFLDB]w?[\'2]? ){37,}[RUFLDB]w?[\'2]?( [xyz][\'2]?){0,2}$',
+    '444bf': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?( [xyz][\'2]?){0,2}$',
     '555': '^([RUFLDB]w?[\'2]? ){59}[RUFLDB]w?[\'2]?$',     # 5x5x5 scambles consist of 60 random moves.
     '555bf': '^([RUFLDB]w?[\'2]? ){58,59}[RUFLDB]w?[\'2]?( 3[RUF]w[\'2]?){0,2}$',   # 5x5x5 BLD scambles consist of 60 random moves + three layer moves to change orientation.
                                                                                     # These three layer moves might cancel with the last 'normal' move, making it 59 'normal' moves.
