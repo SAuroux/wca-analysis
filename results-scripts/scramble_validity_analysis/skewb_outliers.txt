@@ -1,0 +1,86 @@
+{'scrambleId': '17925', 'competitionId': 'MumbaiSummerOpen2014', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '2', 'scramble': "L R L' U L U B L'"}
+{'scrambleId': '71806', 'competitionId': 'HasseltOpen2014', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "L R L B L' R U R"}
+{'scrambleId': '112110', 'competitionId': 'SwidnikOpen2015', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "L R L U L B U' R' L' U"}
+{'scrambleId': '147756', 'competitionId': 'IndianNationals2015', 'eventId': 'skewb', 'roundTypeId': 'd', 'groupId': 'C', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "L R L R' L U' L"}
+{'scrambleId': '185305', 'competitionId': 'BelgiumSummer2015', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L R L U' L' B R"}
+{'scrambleId': '185308', 'competitionId': 'BelgiumSummer2015', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "L R L B' U B L"}
+{'scrambleId': '222510', 'competitionId': 'XianOpen2015', 'eventId': 'skewb', 'roundTypeId': 'd', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L R B U' L R' L R' B'"}
+{'scrambleId': '710788', 'competitionId': 'ImaginaliaOpen2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B U R L R B' R B'"}
+{'scrambleId': '769056', 'competitionId': 'SantaFeAutumnV22018', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B L B L R L U'"}
+{'scrambleId': '795324', 'competitionId': 'HotelCube2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U B L B' R' L U B'"}
+{'scrambleId': '841923', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "U B L' U B U' B'"}
+{'scrambleId': '841924', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U L R' U' L' U B'"}
+{'scrambleId': '841926', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "R B R U B U R'"}
+{'scrambleId': '841929', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "B R U' L R L B L' U"}
+{'scrambleId': '841930', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "U B' R U' R U' R"}
+{'scrambleId': '841931', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L R L' U' B' U' L'"}
+{'scrambleId': '841932', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "R B L R L B L'"}
+{'scrambleId': '841933', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "R L U' L U R L B R'"}
+{'scrambleId': '841938', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'C', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B U L' B R L' B'"}
+{'scrambleId': '841940', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'C', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "L R U' R B' L' B' U B"}
+{'scrambleId': '841942', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '0', 'scrambleNum': '2', 'scramble': "L R U L R' U' B L"}
+{'scrambleId': '841943', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "L U L U R' L U"}
+{'scrambleId': '841944', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "L U R' U' B' L U"}
+{'scrambleId': '841945', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L B L' R' U R' L U' L'"}
+{'scrambleId': '841946', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B L U B R L B' L'"}
+{'scrambleId': '841947', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'D', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "L U R L U' L B'"}
+{'scrambleId': '841952', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'E', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U B L B' L' R B"}
+{'scrambleId': '841953', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'E', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B L U' B L' R' L'"}
+{'scrambleId': '841954', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'E', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "L R L' R U L' R U'"}
+{'scrambleId': '841957', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'F', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "B R B' U' R' B L U' R"}
+{'scrambleId': '841958', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'F', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "L R B' R' U' R U"}
+{'scrambleId': '841959', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'F', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B U R' B' U R' B"}
+{'scrambleId': '841962', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'G', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "U R B L' U' L R'"}
+{'scrambleId': '841965', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'G', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "U B R L' R B R U'"}
+{'scrambleId': '841966', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'G', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B L' R U' L B U L"}
+{'scrambleId': '841967', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'G', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U L B' R' L' R L'"}
+{'scrambleId': '841969', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'H', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "U L U R U R' U L"}
+{'scrambleId': '841972', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'H', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "R B R B U R U' B U'"}
+{'scrambleId': '841983', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "B L U B U' L' B"}
+{'scrambleId': '841984', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '0', 'scrambleNum': '2', 'scramble': "R B L U B' U' L B"}
+{'scrambleId': '841985', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '0', 'scrambleNum': '3', 'scramble': 'B R L U R U B L'}
+{'scrambleId': '841986', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "U B R U B U L'"}
+{'scrambleId': '841987', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U L U' B U L U B"}
+{'scrambleId': '841988', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B U B R L' R B'"}
+{'scrambleId': '841989', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'J', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "B R L U' L B U' B'"}
+{'scrambleId': '841991', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'K', 'isExtra': '0', 'scrambleNum': '2', 'scramble': "B R L B' R' U' B'"}
+{'scrambleId': '841993', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'K', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "R B U B R' L B R"}
+{'scrambleId': '841994', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'K', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B L R U B' R U' L'"}
+{'scrambleId': '841995', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'K', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "L R U B' L' R B L"}
+{'scrambleId': '842001', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'L', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B R U B L R' B' R'"}
+{'scrambleId': '842006', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'M', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "U L B U L R' L' B'"}
+{'scrambleId': '842018', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'O', 'isExtra': '0', 'scrambleNum': '1', 'scramble': "U B U R' L B' L"}
+{'scrambleId': '842023', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'O', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U B L' R' B U L U' B'"}
+{'scrambleId': '842035', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'Q', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "U L R' U R U' B R"}
+{'scrambleId': '842036', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'Q', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L R L U B' L B R'"}
+{'scrambleId': '842037', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'Q', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U L R B L' U' L U'"}
+{'scrambleId': '842038', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'Q', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "L R B R U' L U L U'"}
+{'scrambleId': '842044', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'R', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U L R U' B L' R U'"}
+{'scrambleId': '842045', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'R', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "B L B R U' B' U'"}
+{'scrambleId': '842050', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'S', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U R U' L B U' L' U R' L"}
+{'scrambleId': '842051', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'S', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "U B L R L B L'"}
+{'scrambleId': '842052', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'S', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "U R L' B U' R U L"}
+{'scrambleId': '842058', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'T', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "L B L' U L' B R L"}
+{'scrambleId': '842065', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'U', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B U R B' U' B U' B"}
+{'scrambleId': '842066', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'U', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "U B R L R U' L' U' L'"}
+{'scrambleId': '842069', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "L U L' B R B' L' R B L'"}
+{'scrambleId': '842070', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "R B L B U R' L"}
+{'scrambleId': '842071', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "B R U' B L R L' B"}
+{'scrambleId': '842072', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "L R L R' B' U' B"}
+{'scrambleId': '842073', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "L B R U L B L'"}
+{'scrambleId': '842076', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "L R' B L R' B L'"}
+{'scrambleId': '842077', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "B L U' B R U R B"}
+{'scrambleId': '842078', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "R U L U R' L' U'"}
+{'scrambleId': '842079', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'B', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B L U' L B' L U R"}
+{'scrambleId': '842084', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'C', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "L B R L' B R' L"}
+{'scrambleId': '842085', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'C', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U L R U L B U' B' U"}
+{'scrambleId': '842086', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'C', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "R B U' R U L B' U'"}
+{'scrambleId': '842101', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '2', 'groupId': 'E', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "B L R' U L' R U'"}
+{'scrambleId': '842105', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '3', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "B R L' R' B' R' B'"}
+{'scrambleId': '842106', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': '3', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "L B R' L U B' R U'"}
+{'scrambleId': '842113', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '5', 'scramble': "U R U' R L' R U"}
+{'scrambleId': '842114', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '1', 'scramble': "B U B L R' B' R B"}
+{'scrambleId': '842115', 'competitionId': 'CubingUSANationals2018', 'eventId': 'skewb', 'roundTypeId': 'f', 'groupId': 'A', 'isExtra': '1', 'scrambleNum': '2', 'scramble': "R B L U L' U L'"}
+{'scrambleId': '860742', 'competitionId': 'LTCKids2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '3', 'scramble': "R B L' U R' B U'"}
+{'scrambleId': '860743', 'competitionId': 'LTCKids2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'A', 'isExtra': '0', 'scrambleNum': '4', 'scramble': "L R' L U R U B'"}
+{'scrambleId': '860748', 'competitionId': 'LTCKids2018', 'eventId': 'skewb', 'roundTypeId': '1', 'groupId': 'B', 'isExtra': '0', 'scrambleNum': '2', 'scramble': "U L R L R' B' R'"}
