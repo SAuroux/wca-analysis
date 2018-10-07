@@ -39,9 +39,13 @@ pattern_dict = {
     '333bf': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}$',
     '333fm': '^([RUFLDB][\'2]? ){12,27}[RUFLDB][\'2]?$',
     # '333fm_new': since late 2016, all 333fm scrambles have R' U' F as static pre- and suffix.
-    '333fm_new': '^R' U' F ([RUFLDB][\'2]? ){12,24}R' U' F$',
+    '333fm_new': '^R\' U\' F ([RUFLDB][\'2]? ){12,24}R\' U\' F$',
     '333ft': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
-    '333mbf': '^(([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}($|\|))+$',
+    # 333mbf is a difficult case, since every 'scramble' field contains multiple scrambles separated by '\n'.
+    # In the database export, '\n' is replaced by '|'. Unfortunately, '\r\n' (the Windows line break) is replaced
+    # by ' |', which would cause every scramble ever edited from a Windows-PC to be shown as error when requiring '|'.
+    # Therefore, the regular expression below allows for both '|' and ' |' as separators between scrambles.
+    '333mbf': '^(([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2} ?($|\|))+$',
     '333oh': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
     # requiring 38-50 moves for 4x4x4 serves as a heuristic to identify unusual scrambles.
     '444': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?$',
