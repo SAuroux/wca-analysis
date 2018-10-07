@@ -29,37 +29,50 @@ scramble_export_file = "db_export/WCA_export_Scrambles.tsv"
 # Name of the output file
 output_file = "irregular_scrambles.txt"
 
-# defining regular expressions patterns matching the scramble strucutre for each WCA event
-# in addition, I am defining simple patterns for the non-scramble columns in the WCA Scrambles table
+# defining regular expressions patterns matching the scramble strucutre for each WCA event.
+# In addition, I am defining simple patterns for the non-scramble columns in the WCA Scrambles table.
 pattern_dict = {
-    '222': '^([RUF][\'2]? ){10}[RUF][\'2]?$',               # 2x2x2 scrambles only have [RUF] moves and are standardized to 11 moves.
-    '333': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',        # requiring 13 or more moves for 3x3x3 does not match the regulations, 
-                                                            # but serves as a heuristic here to identify unusually short scrambles.
+    # 2x2x2 scrambles only have [RUF][\'2]? moves and are standardized to 11 moves.
+    '222': '^([RUF][\'2]? ){10}[RUF][\'2]?$',
+    # requiring 13-25 moves for 3x3x3 serves as a heuristic to identify unusual scrambles.
+    '333': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
     '333bf': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}$',
     '333fm': '^([RUFLDB][\'2]? ){12,27}[RUFLDB][\'2]?$',
+    # '333fm_new': since late 2016, all 333fm scrambles have R' U' F as static pre- and suffix.
+    '333fm_new': '^R' U' F ([RUFLDB][\'2]? ){12,24}R' U' F$',
     '333ft': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
     '333mbf': '^(([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}($|\|))+$',
     '333oh': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
-    '444': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?$',    # requiring 38 or more moves for 4x4x4 does not match the regulations, 
-                                                            # but serves as a heuristic here to identify unusually short scrambles.
+    # requiring 38-50 moves for 4x4x4 serves as a heuristic to identify unusual scrambles.
+    '444': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?$',
     '444bf': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?( [xyz][\'2]?){0,2}$',
-    '555': '^([RUFLDB]w?[\'2]? ){59}[RUFLDB]w?[\'2]?$',     # 5x5x5 scambles consist of 60 random moves.
-    '555bf': '^([RUFLDB]w?[\'2]? ){58,59}[RUFLDB]w?[\'2]?( 3[RUF]w[\'2]?){0,2}$',   # 5x5x5 BLD scambles consist of 60 random moves + three layer moves to change orientation.
-                                                                                    # These three layer moves might cancel with the last 'normal' move, making it 59 'normal' moves.
-    '666': '^(3?[RUFLDB]w?[\'2]? ){79}3?[RUFLDB]w?[\'2]?$', # 6x6x6 scambles consist of 80 random moves.
-    '777': '^(3?[RUFLDB]w?[\'2]? ){99}3?[RUFLDB]w?[\'2]?$', # 7x7x7 scambles consist of 100 random moves.
+    # 5x5x5 scambles consist of  exactly 60 random moves.
+    '555': '^([RUFLDB]w?[\'2]? ){59}[RUFLDB]w?[\'2]?$',
+    # 5x5x5 BLD scambles consist of 60 random moves + three layer moves to change orientation.
+    # These three layer moves might cancel with the last 'normal' move, making it 59 'normal' moves.
+    '555bf': '^([RUFLDB]w?[\'2]? ){58,59}[RUFLDB]w?[\'2]?( 3[RUF]w[\'2]?){0,2}$',
+    # 6x6x6 scambles consist of exactly 80 random moves.
+    '666': '^(3?[RUFLDB]w?[\'2]? ){79}3?[RUFLDB]w?[\'2]?$',
+    # 7x7x7 scambles consist of exactly 100 random moves.
+    '777': '^(3?[RUFLDB]w?[\'2]? ){99}3?[RUFLDB]w?[\'2]?$',
+    # Clock and Megaminx both have very exact scramble patterns
     'clock': '^UR[0-6][+-] DR[0-6][+-] DL[0-6][+-] UL[0-6][+-] U[0-6][+-] R[0-6][+-] D[0-6][+-] L[0-6][+-] ALL[0-6][+-] y2 ' + \
                 'U[0-6][+-] R[0-6][+-] D[0-6][+-] L[0-6][+-] ALL[0-6][+-]( UR)?( DR)?( DL)?( UL)?$',
-    'minx': '^((R(\+\+|--) D(\+\+|--) ){5}U\'?($|\s)){7}$',                                         # Clock and Megaminx both have a very exact scramble pattern
-    'pyram': '^([RULB]\'? ){10}[RULB]\'?( u\'?)?( l\'?)?( r\'?)?( b\'?)?$',                         # Pyraminx scrambles are standardized to 11 moves (+tips).
+    'minx': '^((R(\+\+|--) D(\+\+|--) ){5}U\'?($|\s)){7}$',
+    # Pyraminx scrambles are standardized to 11 moves, followed by possible tip rotations in fixed order.
+    'pyram': '^([RULB]\'? ){10}[RULB]\'?( u\'?)?( l\'?)?( r\'?)?( b\'?)?$',
     'skewb': '^([RULB]\'? ){10}[RULB]\'?$',
-    'sq1': '^(\((-[1-5]|[0-6]),(-[1-5]|[0-6])\) \/ ){7,}\((-[1-5]|[0-6]),(-[1-5]|[0-6])\)( \/)?$',  # requiring 8 or more (a,b) moves for SQ1 does not match the regulations, 
-                                                                                                    # but serves as a heuristic here to identify unusually short scrambles.
-    'scrambleId': '^[0-9]+$',   # Only check if scrambleIds are numeric
-    'groupId': '^[AB]?[A-Z]$',  # this regular expression covers up to 78 groups (A - BZ)
-    'isExtra': '^[01]$',        # isExtra always has to be either 0 or 1
-    'scrambleNum': '^[1-5]$'    # scrambleNum should generally be between 1 and 5 
-                                # (Note: this expression will also catch the weird, yet valid case of excessivly many (>5) extra scrambles.)
+    # requiring 8-15 (a,b) moves for SQ1 serves as a heuristic to identify unusual scrambles.
+    'sq1': '^(\((-[1-5]|[0-6]),(-[1-5]|[0-6])\) \/ ){7,14}\((-[1-5]|[0-6]),(-[1-5]|[0-6])\)( \/)?$',
+    # Only check if scrambleIds are numeric
+    'scrambleId': '^[0-9]+$',
+    # this regular expression for groupId covers up to 78 groups (A - BZ)
+    'groupId': '^[AB]?[A-Z]$',
+    # isExtra always has to be either 0 or 1
+    'isExtra': '^[01]$',
+    # scrambleNum should generally be between 1 and 5 
+    # (Note: this expression will also catch the weird, yet valid case of excessivly many (>5) extra scrambles.)
+    'scrambleNum': '^[1-5]$'
 }
     
 patterns = {event: re.compile(pattern_dict[event]) for event in pattern_dict}
@@ -80,25 +93,37 @@ checked_scrambles = 0
 errors_found = defaultdict(int)
 
 while True:
+    
     try:
         tmp = fin.readline().strip().split('\t')
         d = {c: tmp[i] for i, c in enumerate(scramble_columns)}
 
         invalid = False
-        for c in d: # columns in Scramble table
-            if c in patterns: # covers scrambleId, groupId, isExtra, scrambleNum
+        for c in d: 
+            # go through all columns of the current Scrambles table row
+            if c in patterns: 
+                # covers scrambleId, groupId, isExtra, scrambleNum
                 invalid = (patterns[c].match(d[c]) is None)
-            elif c in checklists: # covers competitionId, eventId, roundTypeId
+            elif c in checklists: 
+                # covers competitionId, eventId, roundTypeId
                 invalid = (d[c] not in checklists[c])
             else: # only c = 'scramble' remains
-                invalid = (patterns[d['eventId']].match(d[c]) is None)
+                competition_year = int(d['competitionId'][-4:])
+                if d['eventId'] == '333fm' and competition_year >= 2017:
+                    # catch the special case of 333fm scrambles >= 2017 (see '333fm_new' in pattern_dict)
+                    invalid = (patterns['333fm_new'].match(d[c]) is None)
+                else:
+                    invalid = (patterns[d['eventId']].match(d[c]) is None)
+
             if invalid:
                 output = 'Error for ' + c + ': ' + str(d)
                 fout.write(output + '\n')
                 print(output)
                 errors_found[c] += 1
                 break
+
         checked_scrambles += 1
+
     except:
         print('Total number of scrambles checked:', checked_scrambles)
         print('Total number of errors found:', sum(errors_found.values()) if len(errors_found) else 0)
