@@ -20,63 +20,66 @@ https://www.worldcubeassociation.org/results/misc/export.html
 __author__ = "Sébastien Auroux"
 __contact__ = "sebastien@auroux.de"
 
-import numpy as np
-import re
+import re, datetime
 from collections import defaultdict
 
 # Location of the database export used by the script
-scramble_export_file = "db_export/WCA_export_Scrambles.tsv"
+SCRAMBLES_TSV_EXPORT = "db_export/WCA_export_Scrambles.tsv"
 # Name of the output file
-output_file = "irregular_scrambles.txt"
+OUTPUT_TIMESTAMP = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+OUTPUT_FILE = "irregular_scrambles_{}.txt".format(OUTPUT_TIMESTAMP)
+# global parameter to limit what years are being checked by the script (allow to only check for new violations)
+MIN_COMPETITION_YEAR = 2020
 
 # defining regular expressions patterns matching the scramble strucutre for each WCA event.
 # In addition, I am defining simple patterns for the non-scramble columns in the WCA Scrambles table.
 pattern_dict = {
-    # 2x2x2 scrambles only have [RUF][\'2]? moves and are standardized to 11 moves.
-    '222': '^([RUF][\'2]? ){10}[RUF][\'2]?$',
+    # 2x2x2 scrambles only have [RUF]['2]? moves and are standardized to 11 moves.
+    '222': "^([RUF]['2]? ){10}[RUF]['2]?$",
     # requiring 13-25 moves for 3x3x3 serves as a heuristic to identify unusual scrambles.
-    '333': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
-    '333bf': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2}$',
-    '333fm': '^([RUFLDB][\'2]? ){12,27}[RUFLDB][\'2]?$',
+    '333': "^([RUFLDB]['2]? ){12,24}[RUFLDB]['2]?$",
+    '333bf': "^([RUFLDB]['2]? ){12,24}[RUFLDB]['2]?( [RUF]w['2]?){0,2}$",
+    '333fm': "^([RUFLDB]['2]? ){12,27}[RUFLDB]['2]?$",
     # '333fm_new': since late 2016, all 333fm scrambles have R' U' F as static pre- and suffix.
-    '333fm_new': '^R\' U\' F ([RUFLDB][\'2]? ){12,24}R\' U\' F$',
-    '333ft': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
+    '333fm_new': "^R' U' F ([RUFLDB]['2]? ){12,24}R' U' F$",
+    '333ft': "^([RUFLDB]['2]? ){12,24}[RUFLDB]['2]?$",
     # 333mbf is a difficult case, since every 'scramble' field contains multiple scrambles separated by '\n'.
     # In the database export, '\n' is replaced by '|'. Unfortunately, '\r\n' (the Windows line break) is replaced
     # by ' |', which would cause every scramble ever edited from a Windows-PC to be shown as error when requiring '|'.
     # Therefore, the regular expression below allows for both '|' and ' |' as separators between scrambles.
-    '333mbf': '^(([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?( [RUF]w[\'2]?){0,2} ?($|\|))+$',
-    '333oh': '^([RUFLDB][\'2]? ){12,24}[RUFLDB][\'2]?$',
+    '333mbf': "^(([RUFLDB]['2]? ){12,24}[RUFLDB]['2]?( [RUF]w['2]?){0,2} ?($|\|)){2,}$",
+    '333oh': "^([RUFLDB]['2]? ){12,24}[RUFLDB]['2]?$",
     # requiring 38-50 moves for 4x4x4 serves as a heuristic to identify unusual scrambles.
-    '444': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?$',
-    '444bf': '^([RUFLDB]w?[\'2]? ){37,49}[RUFLDB]w?[\'2]?( [xyz][\'2]?){0,2}$',
+    '444': "^([RUFLDB]w?['2]? ){37,49}[RUFLDB]w?['2]?$",
+    '444bf': "^([RUFLDB]w?['2]? ){37,49}[RUFLDB]w?['2]?( [xyz]['2]?){0,2}$",
     # 5x5x5 scambles consist of  exactly 60 random moves.
-    '555': '^([RUFLDB]w?[\'2]? ){59}[RUFLDB]w?[\'2]?$',
+    '555': "^([RUFLDB]w?['2]? ){59}[RUFLDB]w?['2]?$",
     # 5x5x5 BLD scambles consist of 60 random moves + three layer moves to change orientation.
     # These three layer moves might cancel with the last 'normal' move, making it 59 'normal' moves.
-    '555bf': '^([RUFLDB]w?[\'2]? ){58,59}[RUFLDB]w?[\'2]?( 3[RUF]w[\'2]?){0,2}$',
+    '555bf': "^([RUFLDB]w?['2]? ){58,59}[RUFLDB]w?['2]?( 3[RUF]w['2]?){0,2}$",
     # 6x6x6 scambles consist of exactly 80 random moves.
-    '666': '^(3?[RUFLDB]w?[\'2]? ){79}3?[RUFLDB]w?[\'2]?$',
+    '666': "^(3?[RUFLDB]w?['2]? ){79}3?[RUFLDB]w?['2]?$",
     # 7x7x7 scambles consist of exactly 100 random moves.
-    '777': '^(3?[RUFLDB]w?[\'2]? ){99}3?[RUFLDB]w?[\'2]?$',
+    '777': "^(3?[RUFLDB]w?['2]? ){99}3?[RUFLDB]w?['2]?$",
     # Clock and Megaminx both have very exact scramble patterns
-    'clock': '^UR[0-6][+-] DR[0-6][+-] DL[0-6][+-] UL[0-6][+-] U[0-6][+-] R[0-6][+-] D[0-6][+-] L[0-6][+-] ALL[0-6][+-] y2 ' + \
-                'U[0-6][+-] R[0-6][+-] D[0-6][+-] L[0-6][+-] ALL[0-6][+-]( UR)?( DR)?( DL)?( UL)?$',
-    'minx': '^((R(\+\+|--) D(\+\+|--) ){5}U\'?($|\s)){7}$',
+    'clock': ("^UR[0-6][\+-] DR[0-6][\+-] DL[0-6][\+-] UL[0-6][\+-] "
+              "U[0-6][\+-] R[0-6][\+-] D[0-6][\+-] L[0-6][\+-] ALL[0-6][\+-] y2 "
+              "U[0-6][\+-] R[0-6][\+-] D[0-6][\+-] L[0-6][\+-] ALL[0-6][\+-]( UR)?( DR)?( DL)?( UL)?$"),
+    'minx': "^((R(\+\+|--) D(\+\+|--) ){5}U'?($|\s)){7}$",
     # Pyraminx scrambles are standardized to 11 moves, followed by possible tip rotations in fixed order.
-    'pyram': '^([RULB]\'? ){10}[RULB]\'?( u\'?)?( l\'?)?( r\'?)?( b\'?)?$',
-    'skewb': '^([RULB]\'? ){10}[RULB]\'?$',
+    'pyram': "^([RULB]'? ){10}[RULB]'?( u'?)?( l'?)?( r'?)?( b'?)?$",
+    'skewb': "^([RULB]'? ){10}[RULB]'?$",
     # requiring 8-15 (a,b) moves for SQ1 serves as a heuristic to identify unusual scrambles.
-    'sq1': '^(\((-[1-5]|[0-6]),(-[1-5]|[0-6])\) \/ ){7,14}\((-[1-5]|[0-6]),(-[1-5]|[0-6])\)( \/)?$',
+    'sq1': "^(\((-[1-5]|[0-6]),(-[1-5]|[0-6])\) \/ ){7,14}\((-[1-5]|[0-6]),(-[1-5]|[0-6])\)( \/)?$",
     # Only check if scrambleIds are numeric
-    'scrambleId': '^[0-9]+$',
+    'scrambleId': "^[0-9]+$",
     # this regular expression for groupId covers up to 78 groups (A - BZ)
-    'groupId': '^[AB]?[A-Z]$',
+    'groupId': "^[AB]?[A-Z]$",
     # isExtra always has to be either 0 or 1
-    'isExtra': '^[01]$',
+    'isExtra': "^[01]$",
     # scrambleNum should generally be between 1 and 5 
     # (Note: this expression will also catch the weird, yet valid case of excessivly many (>5) extra scrambles.)
-    'scrambleNum': '^[1-5]$'
+    'scrambleNum': "^[1-5]$"
 }
     
 patterns = {event: re.compile(pattern_dict[event]) for event in pattern_dict}
@@ -86,21 +89,24 @@ with open("db_export/WCA_export_Competitions.tsv", 'r', encoding="utf8") as f:
 with open("db_export/WCA_export_Events.tsv", 'r') as f:
     events = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
 with open("db_export/WCA_export_RoundTypes.tsv", 'r') as f:
-    roundtypes = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
+    round_types = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
 
-checklists = {'competitionId': competitions, 'eventId': events, 'roundTypeId': roundtypes}
+checklists = {'competitionId': competitions, 'eventId': events, 'roundTypeId': round_types}
 
-fin = open(scramble_export_file, 'r')
+fin = open(SCRAMBLES_TSV_EXPORT, 'r')
 scramble_columns = fin.readline().strip().split('\t')
-fout = open(output_file, 'w')
+fout = open(OUTPUT_FILE, 'w')
 checked_scrambles = 0
 errors_found = defaultdict(int)
 
 while True:
-    
     try:
-        tmp = fin.readline().strip().split('\t')
-        d = {c: tmp[i] for i, c in enumerate(scramble_columns)}
+        current_line = fin.readline().strip().split('\t')
+        d = {c: current_line[i] for i, c in enumerate(scramble_columns)}
+        competition_year = int(d['competitionId'][-4:])
+
+        if competition_year < MIN_COMPETITION_YEAR:
+            continue
 
         invalid = False
         for c in d: 
@@ -112,7 +118,6 @@ while True:
                 # covers competitionId, eventId, roundTypeId
                 invalid = (d[c] not in checklists[c])
             else: # only c = 'scramble' remains
-                competition_year = int(d['competitionId'][-4:])
                 if d['eventId'] == '333fm' and competition_year >= 2017:
                     # catch the special case of 333fm scrambles >= 2017 (see '333fm_new' in pattern_dict)
                     invalid = (patterns['333fm_new'].match(d[c]) is None)
