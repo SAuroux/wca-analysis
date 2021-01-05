@@ -36,6 +36,9 @@ db_export_dir = "db_export"
 # Name of the output file
 output_file = "record_consistency_output.tsv"
 
+# Getting the start date for outputting possible errors:
+possible_errors_start_date = raw_input("Date to begin output for possible errors (YYYY-MM-DD) (leave blank for all possible errors): ");
+
 # read in all required data from WCA database export
 try:
     if not db_export_dir[-1] == '/':
@@ -285,7 +288,8 @@ def record_consistency_check(event,kind):
         elif len(records) > 1:
             err = []
             for i, r in records.iterrows():
-                err.append(output_tuple(r))
+                if r['enddate'] > possible_errors_start_date:
+                    err.append(output_tuple(r))
             # avoid duplicates (could appear in multiple overlapping sets)
             if not err in possible_errors:
                 possible_errors.append(err)
