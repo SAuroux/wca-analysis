@@ -34,7 +34,7 @@ import pdb
 # Location of the database export used by the script
 db_export_dir = "db_export"
 # Name of the output file
-output_file = "record_consistency_output.txt"
+output_file = "record_consistency_output.tsv"
 
 # read in all required data from WCA database export
 try:
@@ -369,9 +369,11 @@ for event in average_events:
 def format_output_tuple(t):
     """ helper function to format output tuples """
 
-    return '{0} ({1},{2}), {3} {4}: {5}, {6} ({7} - {8}), round: {9}, stored: {10}, computed: {11}\n'.format(*t)
+    return '{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\n'.format(*t)
 
 with open(output_file,"w") as fout:
+    # column headers
+    fout.write('WCAID\tCountry\tContinent\tevent\tS/A\tResults\tCompetition\tStart Date\tEnd Date\tRound\tStored\tComputed\n\n')
     fout.write('Clear errors: {}\n\n'.format(len(clear_errors)))
     for err in clear_errors:
         out = format_output_tuple(err)
