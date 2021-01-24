@@ -90,7 +90,7 @@ def format_result(value, event_id):
         else:
             out += '.00'
         # remove leading zeros
-        for bad_padding in ['0:00:0', '0:00:', '0:0', '0']:
+        for bad_padding in ['0:00:0', '0:00:', '0:0', '0:', '0']:
             rel_index = len(bad_padding)
             if out[:rel_index] == bad_padding:
                 out = out[rel_index:]
@@ -98,44 +98,33 @@ def format_result(value, event_id):
         return out
 
 
-def check_record(min_per_round, old_records, region, value, competition, round_id):
+def check_record(value, min_per_round, cummin_above, past_records, region):
     """ helper function to check whether or not a given result could potentially be a record """
 
     # min_per_round (best result per round) is already known at this point, so if there was already a
     # better results for this competition, round, region then return False
-    if min_per_round[(competition, round_id, region)] < value:
+    if min_per_round < value:
         return False
 
-    # also check preceding rounds for better results
-    for round_type in ROUND_RANKS:
-        if (competition, round_type, region) in min_per_round.keys() \
-                and ROUND_RANKS[round_type] < ROUND_RANKS[round_id] \
-                and min_per_round[(competition, round_type, region)] < value:
-            return False
+    # further, the result needs to be at least as good as all preceding values
+    if cummin_above < value:
+        return False
 
-    # otherwise compare against old records
-    return region not in old_records or value <= old_records[region]
+    # otherwise compare against past records
+    return region not in past_records or value <= past_records[region]
 
 
-def update_old_records(all_records, old_records, active_continents, active_countries, start_date):
-    """ helper function to update dict of records happened strictly before the given start_date """
+def get_past_records(df, value_col):
+    """ helper function to construct a dict of standing records from the given DataFrame """
 
-    past_records = pd.DataFrame(all_records)
-    past_records = past_records[past_records['end_date'] < start_date]
+    if df.empty:
+        return {}
 
-    tmp = past_records['value']
-    if len(tmp) > 0:
-        old_records['World'] = tmp.min()
-    for con in active_continents:
-        tmp = past_records[past_records['continent'] == con]['value']
-        if len(tmp) > 0:
-            old_records[con] = tmp.min()
-    for nat in active_countries:
-        tmp = past_records[past_records['country'] == nat]['value']
-        if len(tmp) > 0:
-            old_records[nat] = tmp.min()
+    past_records = {'World': df[value_col].min()}
+    past_records.update(df[['continentId', value_col]].groupby('continentId')[value_col].min().to_dict())
+    past_records.update(df[['personCountryId', value_col]].groupby('personCountryId')[value_col].min().to_dict())
 
-    return old_records
+    return past_records
 
 
 def store_errors(records, event_id, kind, clear_errors, possible_errors):
@@ -210,18 +199,25 @@ def record_consistency_check(df, competition_dates, event_id, kind):
     df = df[(df['eventId'] == event_id) & (df[value_col] > 0)]
     df = df.drop(columns=['eventId', 'average' if kind == 'single' else 'best'])
     df = df.sort_values(by=['start_date', 'competitionId', 'round_rank', value_col])
-    # from the remaining rows, only those with a marker or with the best value per round and country are relevant
-    df['best_value'] = df.groupby(['competitionId', 'roundTypeId', 'personCountryId'])[value_col].transform('min')
-    df = df[(df[value_col] == df['best_value']) | (df[marker_col] != '')].drop(columns=['best_value'])
 
-    all_records, old_records, min_per_round = [], {}, {}
+    # from the remaining rows, only those with a marker or with the best value per round and country are relevant
+    df['min_round_nat'] = df.groupby(['competitionId', 'roundTypeId', 'personCountryId'])[value_col].transform('min')
+    df = df[(df[value_col] == df['min_round_nat']) | (df[marker_col] != '')]
+
+    # generate more helpful columns for the upcoming consistency check
+    df['min_round_con'] = df.groupby(['competitionId', 'roundTypeId', 'continentId'])[value_col].transform('min')
+    df['min_round_world'] = df.groupby(['competitionId', 'roundTypeId'])[value_col].transform('min')
+    df['cummin_comp_nat'] = df.groupby(['competitionId', 'personCountryId'])[value_col].agg('cummin')
+    df['cummin_comp_con'] = df.groupby(['competitionId', 'continentId'])[value_col].agg('cummin')
+    df['cummin_comp_world'] = df.groupby(['competitionId'])[value_col].agg('cummin')
+
+    # create needed lists and dictionaries to store the consistency check results
+    all_records, past_records = [], {}
     clear_errors, possible_errors = [], []
-    active_countries, active_continents = [], []
     old_start_date = np.min(df['start_date'])
 
     # first compute all possible records
     for index, row in df.iterrows():
-        person = row['personId']
         competition = row['competitionId']
         round_id = row['roundTypeId']
         country = row['personCountryId']
@@ -229,39 +225,22 @@ def record_consistency_check(df, competition_dates, event_id, kind):
         value = int(row[value_col])
         marker = row[marker_col]
         s_date = row['start_date']
-        e_date = row['end_date']
 
         if s_date != old_start_date:
-            old_records = update_old_records(all_records, old_records, active_continents, active_countries, s_date)
+            past_records = get_past_records(df[df['end_date'] < s_date], value_col)
 
-        # for each competition, round and country, it is only needed to checks
-        # the best result. Remember that results are ordered in ascending order.
-        # Also set values for continent and world when not yet present
-        if not (competition, round_id, country) in min_per_round:
-            min_per_round[(competition, round_id, country)] = value
-            if not (competition, round_id, continent) in min_per_round:
-                min_per_round[(competition, round_id, continent)] = value
-                if not (competition, round_id, 'World') in min_per_round:
-                    min_per_round[(competition, round_id, 'World')] = value
-
-        # store active countries and continents for more efficient execution
-        if country not in active_countries:
-            active_countries.append(country)
-            if continent not in active_continents:
-                active_continents.append(continent)
-
-        record_data = {'personId': person, 'competitionId': competition, 'round': round_id, 'value': value,
-                       'country': country, 'continent': continent, 'start_date': s_date, 'end_date': e_date,
+        record_data = {'personId': row['personId'], 'competitionId': competition, 'round': round_id, 'value': value,
+                       'country': country, 'continent': continent, 'start_date': s_date, 'end_date': row['end_date'],
                        'marker': marker, 'computed': ''}
 
         # check for record potential in order: national, continental, global
-        if check_record(min_per_round, old_records, country, value, competition, round_id):
+        if check_record(value, row['min_round_nat'], row['cummin_comp_nat'], past_records, country):
             record_data['computed'] = NR_MARKER
             record_data['region'] = country
-            if check_record(min_per_round, old_records, continent, value, competition, round_id):
+            if check_record(value, row['min_round_con'], row['cummin_comp_con'], past_records, continent):
                 record_data['computed'] = CR_MARKER[continent]
                 record_data['region'] = continent
-                if check_record(min_per_round, old_records, 'World', value, competition, round_id):
+                if check_record(value, row['min_round_world'], row['cummin_comp_world'], past_records, 'World'):
                     record_data['computed'] = WR_MARKER
                     record_data['region'] = 'World'
             all_records.append(record_data)
