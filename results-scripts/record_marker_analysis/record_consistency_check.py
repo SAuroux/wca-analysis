@@ -27,6 +27,7 @@ __contact__ = "sebastien@auroux.de"
 import datetime
 import numpy as np
 import pandas as pd
+import time
 
 # global variables
 
@@ -127,44 +128,52 @@ def get_past_records(df, value_col):
     return past_records
 
 
-def store_errors(records, event_id, kind, clear_errors, possible_errors):
-    """ helper function to store clear errors and possible errors (conflicting records) """
+def evaluate_records(records, comp_year, event_id, kind, clear_errors, possible_errors, evaluated_hashes):
+    """ helper function to further assess possible errors
 
-    if len(records) == 1:
-        r = records.iloc[0]
-        if r['marker'] != r['computed']:
-            err = output_tuple(r, event_id, kind)
-            # avoid duplicates (could appear in multiple overlapping sets)
-            if err not in clear_errors:
-                clear_errors.append(err)
-    elif len(records) > 1:
-        err = []
-        for i, r in records.iterrows():
-            err.append(output_tuple(r, event_id, kind))
-        # avoid duplicates (could appear in multiple overlapping sets)
-        if err not in possible_errors:
-            possible_errors.append(err)
-
-
-def evaluate_record_output(records, comp, event_id, kind, record_df, overlapping_comps, clear_errors, possible_errors):
-    """ helper function to further assess possible errors """
+    for all record types, a single record among overlapping competitions
+    where the current marker does not equal the computed marker corresponds
+    to a clear error. However, this requires double-checking for the affected
+    competition's overlapping set.
+    Meanwhile, multiple records with the same region are given out to
+    check for possible errors.
+    """
 
     if len(records) == 0:
         return None
-    elif len(records) > 1 or comp == records['competitionId'].iloc[0]:
-        # there are either multiple results or this is already the affected
-        # competition's overlapping set (no double-check needed)
-        store_errors(records, event_id, kind, clear_errors, possible_errors)
-    else:
-        # test if the current overlapping set equals the competition's
-        # overlapping set. If not, do nothing: if it is a clear error, it
-        # will reappear and handled within a different overlapping set.
-        ts_date, te_date = records['start_date'].iloc[0], records['end_date'].iloc[0]
-        test_set = list(
-            record_df[
-                (ts_date <= record_df['end_date']) & (record_df['start_date'] <= te_date)].competitionId.unique())
-        if test_set == overlapping_comps:
-            store_errors(records, event_id, kind, clear_errors, possible_errors)
+
+    records_hash = pd.util.hash_pandas_object(records).sum()
+    if records_hash in evaluated_hashes:
+        # this set of records was already checked, don't check again!
+        return None
+    evaluated_hashes.append(records_hash)
+
+    if len(records) == 1:
+        if records.iloc[0]['marker'] != records.iloc[0]['computed']:
+            # only one record without conflicts differing from computed, so this is a clear error
+            store_errors(records, event_id, kind, clear_errors)
+        return None
+
+    if records['value'].nunique() == 1 and not (records['marker'] == records['computed']).all():
+        # ties should always be marked as awarded records, otherwise this is a clear error
+        store_errors(records, event_id, kind, clear_errors)
+    elif comp_year >= 2013 and records['competitionId'].nunique() == 1 \
+            and records.iloc[0]['num_days'] < records.loc[records['marker'] != '', 'value'].nunique():
+        # since 2013, any competition with number of days < number of distinct records (without ties) is a clear error
+        store_errors(records, event_id, kind, clear_errors)
+    else:  # possible error
+        store_errors(records, event_id, kind, possible_errors)
+
+
+def store_errors(records, event_id, kind, errors):
+    """ helper function to store record errors """
+
+    err = [output_tuple(row, event_id, kind) for _, row in records.iterrows()]
+
+    if err and err not in errors:
+        errors.append(err)
+
+    return errors
 
 
 def output_tuple(row, event_id, kind):
@@ -174,9 +183,9 @@ def output_tuple(row, event_id, kind):
             row['round'], row['marker'], row['computed'])
 
 
-def format_output_tuple(t):
+def format_error_output(err):
     """ helper function to format output tuples """
-    return (11 * '{}\t' + '{}\n').format(*t)
+    return '\n'.join(['\t'.join(map(str, t)) for t in err])
 
 
 def record_consistency_check(df, competition_dates, event_id, kind):
@@ -188,9 +197,9 @@ def record_consistency_check(df, competition_dates, event_id, kind):
 
     if kind not in ['single', 'average']:
         print("Warning: Invalid record kind for consistency check: " + str(kind))
-        exit(1)
+        return [], []
 
-    print("Calculating records for " + event_id + " " + kind + " records...")
+    print("Calculating all potential records for {} {} records...".format(event_id, kind))
 
     value_col = 'best' if kind == 'single' else 'average'
     marker_col = 'regionalSingleRecord' if kind == 'single' else 'regionalAverageRecord'
@@ -198,7 +207,7 @@ def record_consistency_check(df, competition_dates, event_id, kind):
     # reduce provided data to relevant rows and columns to improve execution time
     df = df[(df['eventId'] == event_id) & (df[value_col] > 0)]
     df = df.drop(columns=['eventId', 'average' if kind == 'single' else 'best'])
-    df = df.sort_values(by=['start_date', 'competitionId', 'round_rank', value_col])
+    df = df.sort_values(by=['start_date', 'end_date', 'competitionId', 'round_rank', value_col])
 
     # from the remaining rows, only those with a marker or with the best value per round and country are relevant
     df['min_round_nat'] = df.groupby(['competitionId', 'roundTypeId', 'personCountryId'])[value_col].transform('min')
@@ -216,7 +225,7 @@ def record_consistency_check(df, competition_dates, event_id, kind):
     clear_errors, possible_errors = [], []
     old_start_date = np.min(df['start_date'])
 
-    # first compute all possible records
+    # first compute all potential records
     for index, row in df.iterrows():
         competition = row['competitionId']
         round_id = row['roundTypeId']
@@ -245,66 +254,60 @@ def record_consistency_check(df, competition_dates, event_id, kind):
                     record_data['region'] = 'World'
             all_records.append(record_data)
 
-        # if no record was computed but a record is currently stored, this is a
-        # clear error. Adding these here to clear_errors is convenient.
+        # if no record was computed but a record is currently stored, this is a clear error.
+        # Adding these here to clear_errors right away is most convenient.
         if record_data['computed'] == '' and marker != '':
             err = output_tuple(record_data, event_id, kind)
             clear_errors.append(err)
 
         old_start_date = s_date
 
-    # then analyze records for (possible) errors, looking at each distinct set
-    # of overlapping competitions
-
-    print("Analyzing records for " + event_id + " " + kind + " records...")
+    # then analyze records for (possible) errors
+    print("Analyzing potential records for {} {} records...".format(event_id, kind))
 
     record_df = pd.DataFrame(all_records)
-    overlapping_comp_sets = []
-    record_competitions = list(record_df['competitionId'].unique())
+    record_df['num_days'] = (record_df['end_date'] - record_df['start_date']).dt.days + 1
+    record_competitions = record_df['competitionId'].unique()
+    evaluated_hashes = []  # list for storing hashes of evaluated DataFrames with records to prevent duplicate checks
 
     for comp in record_competitions:
         s_date, e_date = competition_dates.loc[comp]['start_date'], competition_dates.loc[comp]['end_date']
-        overlapping_comps = list(
-            record_df[(s_date <= record_df['end_date']) & (record_df['start_date'] <= e_date)].competitionId.unique())
-        if overlapping_comps in overlapping_comp_sets:
-            continue
-        else:
-            overlapping_comp_sets.append(overlapping_comps)
+        overlapping_comps = record_df[(s_date <= record_df['end_date'])
+                                      & (record_df['start_date'] <= e_date)].competitionId.unique()
 
         # now check for world, continental and national records
-        # for all record types, a single record among overlapping competitions
-        # where the current marker does not equal the computed marker corresponds
-        # to a clear error. However, this requires double-checking for the affected
-        # competition's overlapping set.
-        # Meanwhile, multiple records with the same region are given out to
-        # check for possible errors.
+        comp_set_records = record_df[record_df['competitionId'].isin(overlapping_comps)]
+
+        # before 2013, records were awarded at the end of each round.
+        # Therefore we can continue here if and year < 2013, if there is just one competition
+        # and if all existing markers match the computed ones.
+        if s_date.year < 2013 and comp_set_records['competitionId'].nunique() == 1 \
+                and (comp_set_records['marker'] == comp_set_records['computed']).all():
+            continue
 
         # world records
-        curr_records = record_df[record_df['competitionId'].isin(overlapping_comps)]
-        curr_records = curr_records[curr_records['computed'] == WR_MARKER]
-        evaluate_record_output(curr_records, comp, event_id, kind, record_df, overlapping_comps,
-                               clear_errors, possible_errors)
+        curr_records = comp_set_records[comp_set_records['computed'] == WR_MARKER]
+        if comp in curr_records['competitionId'].values:
+            evaluate_records(curr_records, s_date.year, event_id, kind,
+                             clear_errors, possible_errors, evaluated_hashes)
 
         # continental records
-        ov_con_records = record_df[record_df['competitionId'].isin(overlapping_comps)]
-        ov_con_records = ov_con_records[ov_con_records['computed'] != NR_MARKER]
+        ov_con_records = comp_set_records[comp_set_records['computed'] != NR_MARKER]
         curr_continents = list(ov_con_records['continent'].unique())
         for con in curr_continents:
             curr_records = ov_con_records[ov_con_records['continent'] == con]
-            if (curr_records['computed'].isin(list(CR_MARKER.values()))).sum() > 0:
-                # (otherwise this would have been caught above, prevent repetition)
-                evaluate_record_output(curr_records, comp, event_id, kind, record_df, overlapping_comps,
-                                       clear_errors, possible_errors)
+            if comp in curr_records['competitionId'].values \
+                    and (curr_records['computed'].isin(list(CR_MARKER.values()))).sum() > 0:
+                evaluate_records(curr_records, s_date.year, event_id, kind,
+                                 clear_errors, possible_errors, evaluated_hashes)
 
         # national records
-        ov_nat_records = record_df[record_df['competitionId'].isin(overlapping_comps)]
-        curr_countries = list(ov_nat_records['country'].unique())
+        curr_countries = list(comp_set_records['country'].unique())
         for nat in curr_countries:
-            curr_records = ov_nat_records[ov_nat_records['country'] == nat]
-            if (curr_records['computed'] == NR_MARKER).sum() > 0:
-                # (otherwise this would have been caught above, prevent repetition)
-                evaluate_record_output(curr_records, comp, event_id, kind, record_df, overlapping_comps,
-                                       clear_errors, possible_errors)
+            curr_records = comp_set_records[comp_set_records['country'] == nat]
+            if comp in curr_records['competitionId'].values and (curr_records['computed'] == NR_MARKER).sum() > 0:
+                evaluate_records(curr_records, s_date.year, event_id, kind,
+                                 clear_errors, possible_errors, evaluated_hashes)
 
     return clear_errors, possible_errors
 
@@ -312,6 +315,8 @@ def record_consistency_check(df, competition_dates, event_id, kind):
 if __name__ == '__main__':
     # Asking for a start date for outputting possible errors:
     input_date = input("Date to begin output for possible errors (YYYY-MM-DD) (leave blank for all possible errors): ")
+    start_time = time.time()
+
     possible_errors_start_date = pd.to_datetime(input_date, errors='coerce')
     if pd.isnull(possible_errors_start_date):
         possible_errors_start_date = datetime.datetime(1982, 1, 1, 0, 0, 0)
@@ -344,16 +349,16 @@ if __name__ == '__main__':
     # create lists of events, initialize error lists to store results
     single_events = results[results['best'] > 0].eventId.unique()
     average_events = results[results['average'] > 0].eventId.unique()
+    events_to_check = [(event, 'single') for event in single_events] + [(event, 'average') for event in average_events]
     all_clear_errors, all_possible_errors = [], []
 
     # record consistency check
     # this is done one event at a time, first for single, then for average
-    for event in single_events:
-        ce, pe = record_consistency_check(results, comp_dates, event, 'single')
-        all_clear_errors.extend(ce)
-        all_possible_errors.extend(pe)
-    for event in average_events:
-        ce, pe = record_consistency_check(results, comp_dates, event, 'average')
+    for i, (curr_event_id, curr_kind) in enumerate(events_to_check):
+        runtime = time.time() - start_time
+        print("[{}/{} {:02d}:{:02d}] Checking consistency for {} {} records:".format(
+            i + 1, len(events_to_check), int(runtime / 60), int(runtime) % 60, curr_event_id, curr_kind))
+        ce, pe = record_consistency_check(results, comp_dates, curr_event_id, curr_kind)
         all_clear_errors.extend(ce)
         all_possible_errors.extend(pe)
 
@@ -366,8 +371,7 @@ if __name__ == '__main__':
         output_stream.write('Clear errors: {}\n\n'.format(len(all_clear_errors)))
         output_stream.write('\t'.join(column_headers) + '\n\n' if all_clear_errors else '')
         for detected_error in all_clear_errors:
-            output_row = format_output_tuple(detected_error)
-            output_stream.write(str(output_row) + '\n')
+            output_stream.write(format_error_output(detected_error) + '\n\n')
 
         # Filter possible errors for end_date >= possible_errors_start_date for at least one of the included results
         all_possible_errors = [pe for pe in all_possible_errors
@@ -377,7 +381,4 @@ if __name__ == '__main__':
         output_stream.write('\nPossible errors: {}\n\n'.format(len(all_possible_errors)))
         output_stream.write('\t'.join(column_headers) + '\n\n' if all_possible_errors else '')
         for detected_error in all_possible_errors:
-            output_row = ''
-            for output_record in detected_error:
-                output_row += format_output_tuple(output_record)
-            output_stream.write(str(output_row) + '\n')
+            output_stream.write(format_error_output(detected_error) + '\n\n')
