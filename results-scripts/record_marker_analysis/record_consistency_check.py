@@ -157,6 +157,11 @@ def evaluate_records(records, comp_year, event_id, kind, clear_errors, possible_
     if records['value'].nunique() == 1 and not (records['marker'] == records['computed']).all():
         # ties should always be marked as awarded records, otherwise this is a clear error
         store_errors(records, event_id, kind, clear_errors)
+    elif comp_year < 2013 and records['competitionId'].nunique() == 1 \
+            and (records['marker'] == records['computed']).all():
+        # before 2013, records were awarded at the end of each round, thus everything is fine
+        # if there is just one competition and if all existing markers match the computed ones.
+        pass
     elif comp_year >= 2013 and records['competitionId'].nunique() == 1 \
             and records.iloc[0]['num_days'] < records.loc[records['marker'] != '', 'value'].nunique():
         # since 2013, any competition with number of days < number of distinct records (without ties) is a clear error
@@ -277,13 +282,6 @@ def record_consistency_check(df, competition_dates, event_id, kind):
 
         # now check for world, continental and national records
         comp_set_records = record_df[record_df['competitionId'].isin(overlapping_comps)]
-
-        # before 2013, records were awarded at the end of each round.
-        # Therefore we can continue here if and year < 2013, if there is just one competition
-        # and if all existing markers match the computed ones.
-        if s_date.year < 2013 and comp_set_records['competitionId'].nunique() == 1 \
-                and (comp_set_records['marker'] == comp_set_records['computed']).all():
-            continue
 
         # world records
         curr_records = comp_set_records[comp_set_records['computed'] == WR_MARKER]
