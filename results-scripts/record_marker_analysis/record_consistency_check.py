@@ -18,23 +18,23 @@ https://www.worldcubeassociation.org/results/misc/export.html
 
 Developer's note: Since this script is not meant for regular public use, I have
 mostly omitted exception handling.
-
 """
 
 __author__ = "Sébastien Auroux"
 __contact__ = "sebastien@auroux.de"
 
 import datetime
+import pathlib
+import time
+
 import numpy as np
 import pandas as pd
-import time
 
 # global variables
 
 # Location of the database export used by the script
-DB_EXPORT_DIR = "db_export"
-if not DB_EXPORT_DIR[-1] == '/':
-    DB_EXPORT_DIR += '/'
+DB_EXPORT_DIR = pathlib.Path("../_wca_db_export")
+
 # Name of the output file
 OUTPUT_FILE = "record_consistency_output_{}.tsv".format(datetime.datetime.now().strftime("%Y%m%d"))
 
@@ -323,7 +323,7 @@ if __name__ == '__main__':
 
     # read in and prepare all required data from WCA database export
     # results data
-    results = pd.read_csv(DB_EXPORT_DIR + 'WCA_export_Results.tsv', delimiter='\t',
+    results = pd.read_csv(DB_EXPORT_DIR / 'WCA_export_Results.tsv', delimiter='\t',
                           usecols=['competitionId', 'eventId', 'roundTypeId', 'personId', 'personCountryId', 'best',
                                    'average', 'regionalSingleRecord', 'regionalAverageRecord']).fillna('')
     results['round_rank'] = results['roundTypeId'].apply(get_round_rank)
@@ -331,7 +331,7 @@ if __name__ == '__main__':
     results = results[results['eventId'] != '333mbo']
 
     # competition data
-    competition_data = pd.read_csv(DB_EXPORT_DIR + 'WCA_export_Competitions.tsv', delimiter='\t',
+    competition_data = pd.read_csv(DB_EXPORT_DIR / 'WCA_export_Competitions.tsv', delimiter='\t',
                                    usecols=['id', 'year', 'month', 'day', 'endMonth', 'endDay'])
     competition_data['start_date'] = pd.to_datetime(competition_data.apply(get_start_date, axis=1))
     competition_data['end_date'] = pd.to_datetime(competition_data.apply(get_end_date, axis=1))
@@ -340,7 +340,7 @@ if __name__ == '__main__':
     comp_dates.set_index(keys='competitionId', inplace=True)
 
     # country data
-    countries = pd.read_csv(DB_EXPORT_DIR + 'WCA_export_Countries.tsv', delimiter='\t', usecols=['id', 'continentId'])
+    countries = pd.read_csv(DB_EXPORT_DIR / 'WCA_export_Countries.tsv', delimiter='\t', usecols=['id', 'continentId'])
     countries.rename(columns={'id': 'personCountryId'}, inplace=True)
     results = results.merge(countries, how='inner', on='personCountryId')
 

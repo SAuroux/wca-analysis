@@ -20,18 +20,22 @@ https://www.worldcubeassociation.org/results/misc/export.html
 __author__ = "Sébastien Auroux"
 __contact__ = "sebastien@auroux.de"
 
-import re, datetime
+import datetime
+import re
+
 from collections import defaultdict
 
 # Location of the database export used by the script
-SCRAMBLES_TSV_EXPORT = "db_export/WCA_export_Scrambles.tsv"
+SCRAMBLES_TSV_EXPORT = "../_wca_db_export/WCA_export_Scrambles.tsv"
+
 # Name of the output file
 OUTPUT_TIMESTAMP = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 OUTPUT_FILE = "irregular_scrambles_{}.txt".format(OUTPUT_TIMESTAMP)
+
 # global parameter to limit what years are being checked by the script (allow to only check for new violations)
 MIN_COMPETITION_YEAR = 2020
 
-# defining regular expressions patterns matching the scramble strucutre for each WCA event.
+# defining regular expressions patterns matching the scramble structure for each WCA event.
 # In addition, I am defining simple patterns for the non-scramble columns in the WCA Scrambles table.
 pattern_dict = {
     # 2x2x2 scrambles only have [RUF]['2]? moves and are standardized to 11 moves.
@@ -52,14 +56,14 @@ pattern_dict = {
     # requiring 38-50 moves for 4x4x4 serves as a heuristic to identify unusual scrambles.
     '444': "^([RUFLDB]w?['2]? ){37,49}[RUFLDB]w?['2]?$",
     '444bf': "^([RUFLDB]w?['2]? ){37,49}[RUFLDB]w?['2]?( [xyz]['2]?){0,2}$",
-    # 5x5x5 scambles consist of  exactly 60 random moves.
+    # 5x5x5 scrambles consist of  exactly 60 random moves.
     '555': "^([RUFLDB]w?['2]? ){59}[RUFLDB]w?['2]?$",
-    # 5x5x5 BLD scambles consist of 60 random moves + three layer moves to change orientation.
+    # 5x5x5 BLD scrambles consist of 60 random moves + three layer moves to change orientation.
     # These three layer moves might cancel with the last 'normal' move, making it 59 'normal' moves.
     '555bf': "^([RUFLDB]w?['2]? ){58,59}[RUFLDB]w?['2]?( 3[RUF]w['2]?){0,2}$",
-    # 6x6x6 scambles consist of exactly 80 random moves.
+    # 6x6x6 scrambles consist of exactly 80 random moves.
     '666': "^(3?[RUFLDB]w?['2]? ){79}3?[RUFLDB]w?['2]?$",
-    # 7x7x7 scambles consist of exactly 100 random moves.
+    # 7x7x7 scrambles consist of exactly 100 random moves.
     '777': "^(3?[RUFLDB]w?['2]? ){99}3?[RUFLDB]w?['2]?$",
     # Clock and Megaminx both have very exact scramble patterns
     'clock': ("^UR[0-6][\+-] DR[0-6][\+-] DL[0-6][\+-] UL[0-6][\+-] "
@@ -78,7 +82,7 @@ pattern_dict = {
     # isExtra always has to be either 0 or 1
     'isExtra': "^[01]$",
     # scrambleNum should generally be between 1 and 5 
-    # (Note: this expression will also catch the weird, yet valid case of excessivly many (>5) extra scrambles.)
+    # (Note: this expression will also catch the weird, yet valid case of excessively many (>5) extra scrambles.)
     'scrambleNum': "^[1-5]$"
 }
     
@@ -93,15 +97,15 @@ with open("db_export/WCA_export_RoundTypes.tsv", 'r') as f:
 
 checklists = {'competitionId': competitions, 'eventId': events, 'roundTypeId': round_types}
 
-fin = open(SCRAMBLES_TSV_EXPORT, 'r')
-scramble_columns = fin.readline().strip().split('\t')
-fout = open(OUTPUT_FILE, 'w')
+f_in = open(SCRAMBLES_TSV_EXPORT, 'r')
+scramble_columns = f_in.readline().strip().split('\t')
+f_out = open(OUTPUT_FILE, 'w')
 checked_scrambles = 0
 errors_found = defaultdict(int)
 
 while True:
     try:
-        current_line = fin.readline().strip().split('\t')
+        current_line = f_in.readline().strip().split('\t')
         d = {c: current_line[i] for i, c in enumerate(scramble_columns)}
         competition_year = int(d['competitionId'][-4:])
 
@@ -117,7 +121,7 @@ while True:
             elif c in checklists: 
                 # covers competitionId, eventId, roundTypeId
                 invalid = (d[c] not in checklists[c])
-            else: # only c = 'scramble' remains
+            else:  # only c = 'scramble' remains
                 if d['eventId'] == '333fm' and competition_year >= 2017:
                     # catch the special case of 333fm scrambles >= 2017 (see '333fm_new' in pattern_dict)
                     invalid = (patterns['333fm_new'].match(d[c]) is None)
@@ -126,7 +130,7 @@ while True:
 
             if invalid:
                 output = 'Error for ' + c + ': ' + str(d)
-                fout.write(output + '\n')
+                f_out.write(output + '\n')
                 print(output)
                 errors_found[c] += 1
                 break

@@ -4,86 +4,84 @@
 # Alexandre Campos (Idea & First version), Sébastien Auroux (Modifications)
 # acampos@worldcubeassociation.org
 # sauroux@worldcubeassociation.org
-# 2019
 
-# place this CheckNames.py in a folder
-# place the export from
-# https://www.worldcubeassociation.org/results/misc/WCA_export.tsv.zip
-# in a folder called db_export
+# Instructions:
+# 1. place and extract the export from https://www.worldcubeassociation.org/results/misc/WCA_export.tsv.zip
+# in a folder and set global variable DB_EXPORT_DIR to the corresponding path
+# 2. Run CheckNames.py
 
-# your main folder would contain
-
-# | ChackNames.py
-# | db_export/
-
-# db_export/ would contain the extracted version of the .zips
-
+# Change log:
 # 2019-02-10: conversion to Python 3, ignoring local names in proper ()-brackets.
 # 2019-02-12: add characters code to the output, update instructions
 # 2019-09-20: minor modifications for upload
+# 2021-12-22: code cleanup & global variable for WCA export location
 
-import csv, string, sys, datetime
+import csv
+import datetime
+import pathlib
+import string
 
-allowed = " .-()'"
+# global variables
 
-def validate(s):
+# Location of the database export used by the script
+DB_EXPORT_DIR = pathlib.Path("../_wca_db_export")
 
-	out = ""
-	invalid = []
-	for x in s:
-		if not (x.isalpha()) and not (x in allowed): # not a letter
-			invalid.append(x)
-	flag = len(invalid) == 0
-	return flag, invalid
+# allowed non-alphanumeric characters
+ALLOWED_NON_ALPHANUM_CHARS = " .-()'"
+
+
+def validate(str_to_check):
+    return [x for x in str_to_check if not (x.isalpha()) and not (x in ALLOWED_NON_ALPHANUM_CHARS)]
+
 
 def suggestion(invalid):
+    # 1 warning by type
+    parenthesis = True
+    apostrophe = True
+    dot = True
+    printable = True
 
-	# 1 warning by type
-	parenthesis = True
-	apostophre = True
-	dot = True
-	printable = True
-	
-	out = []
-	char_codes = []
-	for x in invalid:
-	
-		if x in "（）" and parenthesis:
-			parenthesis = False
-			out.append("Use regular parenthesis")
+    output = []
+    char_codes = []
+    for x in invalid:
 
-		if x in "’`" and apostophre:
-			apostophre = False
-			out.append("Use regular apostrophe")
+        if x in "（）" and parenthesis:
+            parenthesis = False
+            output.append("Use regular parenthesis")
 
-		if x == "·" and dot:
-			dot = False
-			out.append("Replace by regular dot")
+        if x in "’`" and apostrophe:
+            apostrophe = False
+            output.append("Use regular apostrophe")
 
-		if not x in string.printable and printable:
-			printable = False
-			out.append("Not printable character detected")
-		
-		char_codes.append(str(ord(x)))
-			
-	return " - ".join(out) +"\tChar codes: "+ ", ".join(char_codes)
+        if x == "·" and dot:
+            dot = False
+            output.append("Replace by regular dot")
+
+        if x not in string.printable and printable:
+            printable = False
+            output.append("Not printable character detected")
+
+        char_codes.append(str(ord(x)))
+
+    return " - ".join(output) + "\tChar codes: " + ", ".join(char_codes)
+
 
 if __name__ == "__main__":
-	out = ''
-	with open("db_export/WCA_export_Persons.tsv", encoding="utf8") as tsvfile:
+    out = ''
+    with open(DB_EXPORT_DIR / "WCA_export_Persons.tsv", encoding="utf8") as tsv_file:
 
-		tsvreader = csv.reader(tsvfile, delimiter="\t")
-		for line in tsvreader:
-		
-			name = line[2]
-			if '(' in name and name[-1] == ')':
-				name = name[:name.find('(')]
-			flag, invalid = validate(name)
-			
-			if not flag:
-				person_id = line[0]
-				out += person_id + "\t" + name + "\t" + "".join(invalid) + "\t" + suggestion(invalid) + "\n"
+        tsv_reader = csv.reader(tsv_file, delimiter="\t")
+        for line in tsv_reader:
 
-	timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")			
-	with open("output_{}.txt".format(timestamp), "w", encoding="utf8") as fout:
-		fout.write(out)
+            name = line[2]
+            if '(' in name and name[-1] == ')':
+                name = name[:name.find('(')]
+            invalid_chars = validate(name)
+
+            if invalid_chars:
+                person_id = line[0]
+                out += person_id + "\t" + name + "\t" + "".join(invalid_chars) + "\t" + suggestion(invalid_chars) + "\n"
+
+    timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    with open("output_{}.txt".format(timestamp), "w", encoding="utf8") as f_out:
+        f_out.write(out)
