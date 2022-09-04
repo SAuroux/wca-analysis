@@ -23,8 +23,9 @@ import string
 
 # global variables
 
-# Location of the database export used by the script
+# Location and filenames of the database export used by the script
 DB_EXPORT_DIR = pathlib.Path("../_wca_db_export")
+DB_PERSONS_TSV = "WCA_export_Persons.tsv"
 
 # allowed non-alphanumeric characters
 ALLOWED_NON_ALPHANUM_CHARS = " .-()'"
@@ -68,7 +69,7 @@ def suggestion(invalid):
 
 if __name__ == "__main__":
     out = ''
-    with open(DB_EXPORT_DIR / "WCA_export_Persons.tsv", encoding="utf8") as tsv_file:
+    with open(DB_EXPORT_DIR / DB_PERSONS_TSV, encoding="utf8") as tsv_file:
 
         tsv_reader = csv.reader(tsv_file, delimiter="\t")
         for line in tsv_reader:

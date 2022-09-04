@@ -21,12 +21,17 @@ __author__ = "Sébastien Auroux"
 __contact__ = "sebastien@auroux.de"
 
 import datetime
+import pathlib
 import re
 
 from collections import defaultdict
 
-# Location of the database export used by the script
-SCRAMBLES_TSV_EXPORT = "../_wca_db_export/WCA_export_Scrambles.tsv"
+# Location and filenames of the database export used by the script
+DB_EXPORT_DIR = pathlib.Path("../_wca_db_export")
+DB_COMPETITIONS_TSV = "WCA_export_Competitions.tsv"
+DB_EVENTS_TSV = "WCA_export_Events.tsv"
+DB_ROUNDS_TSV = "WCA_export_RoundTypes.tsv"
+DB_SCRAMBLES_TSV = "WCA_export_Scrambles.tsv"
 
 # Name of the output file
 OUTPUT_TIMESTAMP = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -88,16 +93,16 @@ pattern_dict = {
     
 patterns = {event: re.compile(pattern_dict[event]) for event in pattern_dict}
 
-with open("db_export/WCA_export_Competitions.tsv", 'r', encoding="utf8") as f:
+with open(DB_EXPORT_DIR / DB_COMPETITIONS_TSV, 'r', encoding="utf8") as f:
     competitions = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
-with open("db_export/WCA_export_Events.tsv", 'r') as f:
+with open(DB_EXPORT_DIR / DB_EVENTS_TSV, 'r') as f:
     events = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
-with open("db_export/WCA_export_RoundTypes.tsv", 'r') as f:
+with open(DB_EXPORT_DIR / DB_ROUNDS_TSV, 'r') as f:
     round_types = [line.strip().split('\t')[0] for line in f.readlines()[1:]]
 
 checklists = {'competitionId': competitions, 'eventId': events, 'roundTypeId': round_types}
 
-f_in = open(SCRAMBLES_TSV_EXPORT, 'r')
+f_in = open(DB_EXPORT_DIR / DB_SCRAMBLES_TSV, 'r')
 scramble_columns = f_in.readline().strip().split('\t')
 f_out = open(OUTPUT_FILE, 'w')
 checked_scrambles = 0
